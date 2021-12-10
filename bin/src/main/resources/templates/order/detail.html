@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/indexdemo :: dynamic(~{::main})}">
+
+<body>
+	<main th:object="${order}">
+
+		<th:block th:replace="/layout/_header.html"></th:block>
+		<div class="hero__item set-bg "
+			data-setbg="/assets/img/hero/banner.jpg ">
+			<div class="hero__text ">
+				<span>FRUIT FRESH</span>
+				<h2>
+					Vegetable <br />100% Organic
+				</h2>
+				<p>Free Pickup and Delivery Available</p>
+			</div>
+		</div>
+		<div
+			style="font-size: 64px; font-family: 'Courier New', Courier, monospace;"></div>
+		<hr>
+		</div>
+
+
+
+
+		<div
+			style="font-size: 64px; font-family: 'Courier New', Courier, monospace;"></div>
+		<h2 style="text-align: center;">THÔNG TIN ĐẶT HÀNG</h2>
+		<center>
+			<div class="row px-3">
+				<div class="col col-lg-6 col-md-6">
+					<ul id="progressbar">
+						<li class="step0 active" id="step1"></li>
+						<li class="step0 active text-center" id="step2"></li>
+						<!-- <li class="step0 text-muted text-right" id="step3"></li> -->
+					</ul>
+				</div>
+			</div>
+		</center>
+		</div>
+
+		<!--  -->
+
+		<hr>
+		<div class="contact-form spad">
+			<div class="container">
+
+				<form action="#">
+					<div class="row">
+						<div class="col-lg-6 col-md-6">
+							<div>Mã đơn hàng:</div>
+							<input th:field="*{id}" class="form-control" readonly>
+						</div>
+						<div class="col-lg-6 col-md-6">
+							<div>Người mua:</div>
+							<input th:field="*{account.username}" class="form-control"
+								readonly>
+						</div>
+						<div class="col-lg-6 col-md-6">
+							<div>Ngày mua:</div>
+							<input th:field="*{createDate}" class="form-control" readonly>
+						</div>
+						<div class="col-lg-6 col-md-6">
+							<div>Số điện thoại:</div>
+							<input th:field="*{numberphone}" class="form-control" readonly>
+						</div>
+						<div class="col-lg-6 col-md-6">
+							<div>Địa chỉ:</div>
+							<textarea th:field="*{address}" class="form-control" readonly></textarea>
+						</div>
+
+
+					</div>
+
+
+
+
+				</form>
+			</div>
+		</div>
+
+		<div class="panel panel-primary">
+			<div
+				style="font-size: 64px; font-family: 'Courier New', Courier, monospace;"></div>
+			<h2 style="text-align: center;">Chi tiết đơn hàng</h2>
+			<br><br>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>ProductID</th>
+						<th>Name</th>
+						<th>Price</th>
+						<th>Quantity</th>
+						<th>Unit Price</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="detail:*{orderDetails}" th:object="${detail}">
+						<td>[[*{product.productid}]]</td>
+						<td>[[*{product.name}]]</td>
+						<td>$[[*{#numbers.formatDecimal(price, 0, 'COMMA', 2,
+							'POINT')}]]</td>
+						<td>[[*{quantity}]]</td>
+						<td>$[[*{#numbers.formatDecimal(price*quantity, 0, 'COMMA',
+							2, 'POINT')}]]</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<hr>
+
+		<center>
+			<a href="/home">
+				<button type="submit" class="site-btn"
+					style="background-color: green;">Quay lại trang chủ</button>
+			</a>&emsp; &ensp; <br> <br>
+		</center>
+
+	</main>
+
+</body>
+
+
+</html>

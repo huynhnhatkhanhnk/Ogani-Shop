@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/indexdemo :: dynamic(~{::main})}">
+
+<body>
+	<main>
+		<th:block th:replace="/layout/_header.html"></th:block>
+		<!-- <th:block th:replace="/layout/_category.html"></th:block>
+ -->
+		<section th:object="${item}" class="product-details spad">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-6">
+						<div class="product__details__pic">
+							<div class="product__details__pic__item">
+								<figure id="magnifying_area">
+								    <img id="magnifying_img" class="product__details__pic__item--large"
+								 		style="width: 400px; height: 400px"
+									th:src="@{|/assets/images/*{image}|}" alt="">
+								</figure>
+								
+							</div>
+							<div class="product__details__pic__slider owl-carousel">
+								<img style="width: 120px; height: 120px" th:data-imgbigurl="@{|/assets/images/*{image}|}"
+									th:src="@{|/assets/images/*{image}|}" alt=""> 
+								<img style="width: 120px; height: 120px" th:data-imgbigurl="@{|/assets/images/*{image1}|}"
+									th:src="@{|/assets/images/*{image1}|}" alt=""> 
+								<img style="width: 120px; height: 120px" th:data-imgbigurl="@{|/assets/images/*{image2}|}"
+									th:src="@{|/assets/images/*{image2}|}" alt=""> 
+								<img style="width: 120px; height: 120px" th:data-imgbigurl="@{|/assets/images/*{image3}|}"
+									th:src="@{|/assets/images/*{image3}|}" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6">
+						<div class="product__details__text">
+							<h3>[[*{name}]]</h3>
+							Loại sản phẩm:  <b>[[*{category.categoryname}]]</b>
+							<div class="product__details__rating">
+								<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+									class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+									class="fa fa-star-half-o"></i>
+							</div>
+							<div class="product__details__price"><del style="color: grey; font-size: 20px">[[*{price}]] VNĐ </del> <br> [[*{price} - *{price} * *{sale} / 100]] VNĐ</div>
+							<p style="font-family: 'Helvetica';">[[*{des_short}]]</p>
+							
+							<a href="#" class="primary-btn" th:unless="*{status}" style="background-color: grey"> 
+								<del>Đã Hết hàng</del></a> 
+							<a href="#" class="primary-btn" th:if="*{status}"
+								th:attr="ng-click=@{|cart.add(${item.productid})|}"
+								onclick="showSwal('success-message')">THÊM GIỎ HÀNG</a>
+							<a href="#" class="heart-icon"
+								th:attr="ng-click=@{|favo.add(${item.productid})|}"
+								onclick="showSwal_favo('success-message')"><span
+								class="icon_heart_alt"></span></a>	
+							<ul>
+								<li><b>Tình trạng</b> <span>[[*{status ?'Còn hàng':'Hết Hàng'}]]</span></li>
+								<li><b>Cân nặng</b> <span>1 [[*{unit}]]</span></li>
+								
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<div class="product__details__tab">
+							<ul class="nav nav-tabs" role="tablist">
+								<li class="nav-item"><a class="nav-link active"
+									data-toggle="tab" href="#tabs-1" role="tab"
+									aria-selected="true">Miêu tả</a></li>
+								<li class="nav-item"><a class="nav-link" data-toggle="tab"
+									href="#tabs-2" role="tab" aria-selected="false">Thông tin</a></li>
+								<li class="nav-item"><a class="nav-link" data-toggle="tab"
+									href="#tabs-3" role="tab" aria-selected="false">Đánh giá <span>(1)</span></a>
+								</li>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane active" id="tabs-1" role="tabpanel">
+									<div class="product__details__tab__desc">
+										<h4>[[*{name}]]</h4>
+										<p style="font-family: 'Helvetica';">[[*{des_long}]]</p>
+									</div>
+								</div>
+								<div class="tab-pane" id="tabs-2" role="tabpanel">
+									<div class="product__details__tab__desc">
+										<h6>[[*{name}]]</h6>
+										<p style="font-family: 'Helvetica';">[[*{information}]]</p>
+									</div>
+								</div>
+								<div class="tab-pane" id="tabs-3" role="tabpanel">
+									<div class="product__details__tab__desc">
+										<h6>[[*{name}]]</h6>
+										<div class="row" th:each="rate:*{rate}" th:object="${rate}">
+											<div class="container mt-3" >
+												<div class="media border p-1" style="background-color : white;">
+													<img th:src="@{|/assets/images/*{account.image}|}" alt=""
+														class="mr-3 mt-3 rounded-circle" style="width: 60px;">
+													<div class="media-body my-date">
+														<h4>
+															[[*{account.username}]]
+														</h4>
+														<p>[[*{createDate}]]</p>
+														<p>[[*{comment}]]</p>
+														<p>[[*{star}]] <i class="fa fa-star"></i></p>
+													</div>
+												</div>
+											</div>
+											<br> <br> <br>
+										</div>
+										<br> <br>
+										<center>
+											<a th:data-id="*{productid}"
+												onclick="hienHopThoaiDanhGia(this.getAttribute('data-id'))">
+												<button type="button" class="btn btn-primary btn-lg"
+													data-toggle="modal" data-target="#exampleModal">
+													Bình luận</button></a>
+										</center>
+										<br> <br>
+
+										<!--BÌNH LUẬN-->
+										<div class="modal fade" id="hopThoaiRate" tabindex="-1"
+											role="dialog" aria-labelledby="modelTitleId"
+											aria-hidden="true">
+											<div class="modal-dialog modal-dialog-centered"
+												role="document">
+												<form th:action="@{/rating_product}" method="post">
+													<div class="modal-content">
+														<input type="hidden" name="layId" id="layId">
+
+														<!-- <div class="modal-header ">
+															ĐỔI THÀNH GIAO DIỆN SAO
+															<input type="radio" name="star" value="1"> 
+															<input type="radio" name="star" value="2"> 
+															<input type="radio" name="star" value="3">
+														</div> -->
+														<div class="modal-header">
+															<fieldset class="rating">
+																<legend>Đánh giá sao :</legend>
+																<input type="radio" id="star5" name="star" value="5" /><label
+																	for="star5" title="Rocks!">5 stars</label> <input
+																	type="radio" id="star4" name="star" value="4" /><label
+																	for="star4" title="Pretty good">4 stars</label> <input
+																	type="radio" id="star3" name="star" value="3" /><label
+																	for="star3" title="Meh">3 stars</label> <input
+																	type="radio" id="star2" name="star" value="2" /><label
+																	for="star2" title="Kinda bad">2 stars</label> <input
+																	type="radio" id="star1" name="star" value="1" /><label
+																	for="star1" title="Sucks big time">1 star</label>
+															</fieldset>
+														</div>
+
+														<div class="modal-body">
+															<legend>Đánh giá sản phẩm :</legend>
+															<textarea id="comment" name="comment" cols="50" rows="5"
+																style="resize: none; width: 100%; height: 100%"></textarea>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-secondary"
+																data-dismiss="modal">Hủy</button>
+
+															<th:block th:unless="${#request.remoteUser}">
+																<a 	th:href="@{/security/login/form}"
+																	class="btn btn-primary">Vui lòng đăng nhập</a>
+															</th:block>
+
+															<button th:if="${#request.remoteUser}" id="xacNhan" 
+																type="submit" class="btn btn-primary">Lưu đánh
+																giá</button>
+
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Product Details Section End -->
+
+			<!-- Related Product Section Begin -->
+			<section class="related-product ">
+				<div class="container ">
+					<div class="row ">
+						<div class="col-lg-12 ">
+							<div class="section-title related__product__title ">
+								<h2>Sản phẩm cùng loại</h2>
+							</div>
+						</div>
+					</div>
+					<div class="row " id="vaokhongsp">
+						<div th:each="p:*{category.products}" id="showxuongsp"
+							class="col-lg-4 col-md-6 col-sm-6">
+							<div class="product-grid ">
+								<div class="product-image ">
+									<img class="pic-1 "
+										th:src="@{|/assets/images/${p.image}|}" alt=""
+										style="width: 270px; height: 270px;">
+									<ul class="social ">
+										<li><a data-tip="Xem chi tiết"><i
+												class="fa fa-search "></i></a></li>
+
+										<li><a data-tip="Yêu thích"
+											th:attr="ng-click=@{|favo.add(${p.productid})|}"
+											onclick="showSwal_favo('success-message')"><i
+												class="fa fa-heart"></i></a></li>
+
+										<li>
+														<a data-tip="Hết hàng" th:unless="${p.status}"><i class="fa fa-times" aria-hidden="true"></i></a>
+							<a data-tip="Thêm vào giỏ" th:if="${p.status}" th:attr="ng-click=@{|cart.add(${p.productid})|}"
+							onclick="showSwal('success-message')"><i class="fa fa-shopping-cart"></i></a>
+												</li>
+
+										<!--<li><button th:attr="ng-click=@{|favo.add(${p.productid})|}"
+													class="btn addcart" >
+													<i class="fa fa-heart "></i></button>
+											</li>-->
+
+										<!--<li><button th:attr="ng-click=@{|cart.add(${p.productid})|}"
+													class="btn addcart">
+													<i class="fa fa-shopping-cart "></i></button>
+											</li>-->
+									</ul>
+									<span class="product-new-label ">Sale</span> <span
+										class="product-discount-label ">[[${p.sale}]]%</span>
+								</div>
+								<ul class="rating ">
+									<li class="fa fa-star "></li>
+									<li class="fa fa-star "></li>
+									<li class="fa fa-star "></li>
+									<li class="fa fa-star "></li>
+									<li class="fa fa-star disable "></li>
+								</ul>
+								<div class="product-content ">
+									<h3 class="title ">
+										<a th:href="@{|/shopdetail/${p.productid}|}"
+											th:utext="${p.name}"></a>
+									</h3>
+									<div class="price ">
+										<span>[[${p.price}]] VNĐ</span> <br> [[${p.price} - ${p.price} * ${p.sale} / 100]] VNĐ
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<center>
+						<a style="color: #7fad39; font: bold;" href="" id="showkhongsp">Xem
+							thêm >></a>
+					</center>
+				</div>
+			</section>
+		</section>
+
+		<!-- Related Product Section End -->
+		<!-- Blog section begin -->
+		<th:block th:replace="/layout/_blog.html "></th:block>
+
+		<!-- Js -->
+		<script>
+			window.onload = function() {
+				let dates = document.querySelectorAll(".my-date > i")
+				for (let i = 0; i < dates.length; i++) {
+					let d = dates[i]
+					d.innerText = moment(d.innerText).format('LLL')
+				}
+			}
+		</script>
+	</main>
+</body>
+</html>

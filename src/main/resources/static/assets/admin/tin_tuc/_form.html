@@ -1,0 +1,100 @@
+<div class="card">
+
+    <div class="card-body">
+        <form>
+            <div class="col-sm-12">
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Tên chủ đề</label> <input ng-model="form.title" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Nội dung chính</label>
+                            <textarea ng-model="form.contents_short" class="form-control" style="height: 100px"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Ngày tạo</label> <input ng-model="form.createdate" type="date" class="form-control">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Nội dung phụ 1</label>
+                            <textarea ng-model="form.contents_para1" class="form-control" style="height: 340px"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <div>Hình ảnh</div>
+                        <label for="image"> <img
+							ng-src="{{'/assets/images/'+ form.image}}"
+							style="height: 300px;">
+						</label> <input type="file" class="form-control" id="image" onchange="angular.element(this).scope().imageChanged(this.files)">
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Nội dung phụ 2</label>
+                            <textarea ng-model="form.contents_para2" class="form-control" style="height: 340px"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <div>Hình ảnh 1</div>
+                        <label for="image2"> <img
+							ng-src="{{'/assets/images/'+ form.image2}}"
+							style="height: 300px;">
+						</label> <input type="file" class="form-control" id="image2" onchange="angular.element(this).scope().imageChanged2(this.files)">
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Nội dung phụ 3</label>
+                            <textarea ng-model="form.contents_para3" class="form-control" style="height: 340px"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <div>Hình ảnh 3</div>
+                        <label for="image1"> <img
+							ng-src="{{'/assets/images/'+ form.image1}}"
+							style="height: 300px;">
+						</label> <input type="file" class="form-control" id="image1" onchange="angular.element(this).scope().imageChanged1(this.files)">
+                    </div>
+                </div>
+
+
+            </div>
+            <br>
+
+
+            <div class="clearfix"></div>
+
+        </form>
+        <button ng-click="create()" class="btn btn-primary pull-right" onclick="add_success('success-message')">
+			<b><i class="fas fa-plus-circle"></i> Thêm</b>
+		</button>
+        <button ng-click="update()" class="btn btn-success pull-right" onclick="update_success('success-message')">
+			<b><i class="fas fa-edit"></i> Cập nhật</b>
+		</button>
+        <button ng-click="delete(form)" class="btn btn-danger pull-right" onclick="dele_success('success-message')">
+			<b><i class="fas fa-recycle"></i> Xóa</b>
+		</button>
+        <button ng-click="reset()" class="btn btn-info pull-right">
+			<b><i class="fas fa-redo-alt"></i> Làm mới</b>
+		</button>
+    </div>
+</div>

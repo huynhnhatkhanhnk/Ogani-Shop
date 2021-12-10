@@ -1,0 +1,105 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="container-fuild">
+            <div class="col-sm-12">
+                <div class="row">
+					
+					<div class="form-group col-sm-6">
+                        <div>Sale</div>
+                        <input ng-model="form.sale" class="form-control">
+                    </div>
+					
+                    <div class="form-group col-sm-6">
+                        <div>Tên sản phẩm</div>
+                        <input ng-model="form.name" class="form-control">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <div>Giá</div>
+                        <input ng-model="form.price" class="form-control">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <div>Danh mục</div>
+                        <select ng-model="form.category.categoryid" class="form-control">
+							<option ng-repeat="c in cates" ng-value="c.categoryid">{{c.categoryname}}</option>
+						</select>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <div>Đơn vị tính</div>
+                        <input ng-model="form.unit" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <div>Hình ảnh</div>
+                        <label for="image"> <img
+							ng-src="{{'/assets/images/' + form.image}}"
+							style="width: 450px; height: 300px">
+						</label> <input type="file" class="form-control" id="image" onchange="angular.element(this).scope().imageChanged(this.files)">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <div>Hình ảnh 1</div>
+                        <label for="image1"> <img
+							ng-src="{{'/assets/images/'+ form.image1}}"
+							style="width: 450px; height: 300px">
+						</label> <input type="file" class="form-control" id="image1" onchange="angular.element(this).scope().imageChanged1(this.files)">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <div>Hình ảnh 2</div>
+                        <label for="images2"> <img
+							ng-src="{{'/assets/images/'+ form.image2}}"
+							style="width: 450px; height: 300px">
+						</label> <input type="file" class="form-control" id="image2" onchange="angular.element(this).scope().imageChanged2(this.files)">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <div>Hình ảnh 3</div>
+                        <label for="images3"> <img
+							ng-src="{{'/assets/images/'+ form.image3}}"
+							style="width: 450px; height: 300px">
+						</label> <input type="file" class="form-control" id="image3" onchange="angular.element(this).scope().imageChanged3(this.files)">
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                        <div>Nội dung ngắn</div>
+                        <textarea ng-model="form.des_short" class="form-control" style="height: 200px"></textarea>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <div>Nội dung đầy đủ</div>
+                        <textarea ng-model="form.des_long" class="form-control" style="height: 200px"></textarea>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <div>Thông tin</div>
+                        <textarea ng-model="form.information" class="form-control" style="height: 200px"></textarea>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <div>Tình trạng</div>
+                        <div class="form-control">
+                            <label class="radio-inline"> <input
+								ng-model="form.status" ng-value="true" name="status"
+								type="radio">Còn hàng
+							</label> <label class="radio-inline"> <input
+								ng-model="form.status" ng-value="false" name="status"
+								type="radio">Hết hàng
+							</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer text-center">
+        <button ng-click="create()" class="btn btn-primary" onclick="add_success('success-message')">
+			<b class="glyphicon glyphicon-plus"></b>Create
+		</button>
+        <button ng-click="update()" class="btn btn-success" onclick="update_success('success-message')">
+			<b class="glyphicon glyphicon-save"></b>Update
+		</button>
+        <button ng-click="deleteConfirm()" class="btn btn-danger" onclick="dele_success('success-message')">
+			<b class="glyphicon glyphicon-trash"></b>Delete
+		</button>
+        <button ng-click="reset()" class="btn btn-info">
+			<b class="glyphicon glyphicon-refresh"></b>Rest
+		</button>
+    </div>
+    <div class="clearfix"></div>
+
+</div>

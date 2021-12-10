@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Ogani Template">
+<meta name="keywords" content="Ogani, unica, creative, html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Ogani | Change Password</title>
+
+<!-- Google Font -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
+	rel="stylesheet">
+
+<!-- Css Styles -->
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css"
+	type="text/css">
+<link rel="stylesheet" href="/assets/css/font-awesome.min.css"
+	type="text/css">
+<link rel="stylesheet" href="/assets/css/elegant-icons.css"
+	type="text/css">
+<link rel="stylesheet" href="/assets/css/nice-select.css"
+	type="text/css">
+<link rel="stylesheet" href="/assets/css/jquery-ui.min.css"
+	type="text/css">
+<link rel="stylesheet" href="/assets/css/owl.carousel.min.css"
+	type="text/css">
+<link rel="stylesheet" href="/assets/css/slicknav.min.css"
+	type="text/css">
+<link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+<!--Bootsrap 4 CDN-->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<!--Fontawesome CDN-->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+	crossorigin="anonymous">
+<!--Custom styles-->
+<link rel="stylesheet" type="text/css" href="styles.css">
+<style>
+/* Made with love by Mutiullah Samim*/
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+body {
+	background-image:
+		url('https://im.whatshot.in/img/2020/Jul/inline-and-header-1593762546.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	font-family: 'Numans', sans-serif;
+}
+
+.container {
+	height: 100%;
+	align-content: center;
+}
+
+.card {
+	height: 400px;
+	margin-top: auto;
+	margin-bottom: auto;
+	width: 450px;
+	background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.social_icon span {
+	font-size: 60px;
+	margin-left: 10px;
+	color: chartreuse;
+}
+
+.social_icon span:hover {
+	color: white;
+	cursor: pointer;
+}
+
+.card-header h3 {
+	color: white;
+}
+
+.social_icon {
+	position: absolute;
+	right: 20px;
+	top: -45px;
+}
+
+.input-group-prepend span {
+	width: 50px;
+	color: rgb(0, 0, 0);
+	border: 0 !important;
+}
+
+input:focus {
+	outline: 0 0 0 0 !important;
+	box-shadow: 0 0 0 0 !important;
+}
+
+.remember {
+	color: white;
+}
+
+.remember input {
+	width: 20px;
+	height: 20px;
+	margin-left: 15px;
+	margin-right: 5px;
+}
+
+.login_btn {
+	color: black;
+	background-color: #00f30c;
+	width: 150px;
+	margin-left: 30%;
+}
+
+.login_btn:hover {
+	color: black;
+	background-color: white;
+}
+
+.links {
+	color: white;
+}
+
+.links a {
+	margin-left: 4px;
+}
+</style>
+</head>
+
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Humberger Begin -->
+	<div class="humberger__menu__overlay"></div>
+	<div class="humberger__menu__wrapper">
+		<div class="humberger__menu__logo">
+			<a href="#"><img src="img/logo.png" alt=""></a>
+		</div>
+		<div class="humberger__menu__cart">
+			<ul>
+				<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+				<li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+			</ul>
+		</div>
+		<div class="humberger__menu__widget">
+			<div class="header__top__right__auth">
+				<a href="#"><i class="fa fa-user"></i> Login</a>
+			</div>
+		</div>
+		<nav class="humberger__menu__nav mobile-menu">
+			<ul>
+				<li class="active"><a href="./index.html">Home</a></li>
+				<li><a href="./shop-grid.html">Shop</a></li>
+				<li><a href="#">Pages</a>
+					<ul class="header__menu__dropdown">
+						<li><a href="./shop-details.html">Shop Details</a></li>
+						<li><a href="./shoping-cart.html">Shoping Cart</a></li>
+						<li><a href="./checkout.html">Check Out</a></li>
+						<li><a href="./blog-details.html">Blog Details</a></li>
+					</ul></li>
+				<li><a href="./blog.html">Blog</a></li>
+				<li><a href="./contact.html">Contact</a></li>
+			</ul>
+		</nav>
+		<div id="mobile-menu-wrap"></div>
+		<div class="header__top__right__social">
+			<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
+				class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a>
+			<a href="#"><i class="fa fa-pinterest-p"></i></a>
+		</div>
+		<div class="humberger__menu__contact">
+			<ul>
+				<li><i class="fa fa-envelope"></i> khanhhnps12852@fpt.edu.vn</li>
+			</ul>
+		</div>
+	</div>
+	<!-- Humberger End -->
+
+	<!-- Header Section Begin -->
+	<header class="header">
+		<div class="header__top">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="header__top__left">
+							<ul>
+								<li><i class="fa fa-envelope"></i>khanhhnps12852@fpt.edu.vn</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="header__top__right">
+							<div class="header__top__right__social">
+								<a href="#"><i class="fa fa-facebook"></i></a>
+							</div>
+							<div class="header__top__right__auth">
+								<a href="#"><i class="fa fa-user"></i> Login</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="container-fluid" style="background-color: white;">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3">
+						<div class="header__logo">
+							<a href="./index.html"><img src="img/logo.png" alt=""></a>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<nav class="header__menu">
+							<ul>
+								<li><a href="./index.html">Home</a></li>
+								<li><a href="./shop-grid.html">Shop</a></li>
+								<li><a href="#">Pages</a>
+									<ul class="header__menu__dropdown">
+										<li><a href="./shop-details.html">Shop Details</a></li>
+										<li><a href="./shoping-cart.html">Shoping Cart</a></li>
+										<li><a href="./checkout.html">Check Out</a></li>
+										<li><a href="./blog-details.html">Blog Details</a></li>
+									</ul></li>
+								<li><a href="./blog.html">Blog</a></li>
+								<li><a href="./contact.html">Contact</a></li>
+							</ul>
+						</nav>
+					</div>
+					<div class="col-lg-3">
+						<div class="header__cart">
+							<ul>
+								<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+								<li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="humberger__open">
+					<i class="fa fa-bars"></i>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- Header Section End -->
+	<div class="container">
+		<div class="d-flex justify-content-center h-100">
+			<div class="card">
+				<div class="card-header">
+					<center>
+						<h3>Đặt lại Password</h3>
+					</center>
+				</div>
+				<div class="card-body">
+					<form th:action="@{/account/reset_password}" method="post">
+						<input type="hidden" name="token" th:value="${token}" />
+						<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input type="password" name="password" id="password"
+								class="form-control" placeholder="New password" required
+								autofocus>
+						</div>
+						<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input type="password" name="confirmPassword"
+								class="form-control" placeholder="Confirm password" required
+								oninput="checkPasswordMatch(this);">
+						</div>
+						<center><div th:if="${message != null}">
+							<p style="color: rgb(124,252,0);">[[${message}]]</p>
+						</div></center>
+						<br>
+						<div class="form-group text-center">
+							<input type="submit" class="btn btn-success btn-login-submit"
+								value="Hoàn thành" />
+							<a href="/security/login/form" class="btn btn-primary">Trở về</a>
+						</div>
+					</form>
+					<script>
+						function checkPasswordMatch(fieldConfirmPassword) {
+							if (fieldConfirmPassword.value != $("#password")
+									.val()) {
+								fieldConfirmPassword
+										.setCustomValidity("Passwords không trùng khớp!");
+							} else {
+								fieldConfirmPassword.setCustomValidity("");
+							}
+						}
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer Section Begin -->
+
+	<!-- Footer Section End -->
+
+	<!-- Js Plugins -->
+	<script src="/assets/js/jquery-3.3.1.min.js"></script>
+	<script src="/assets/js/bootstrap.min.js"></script>
+	<script src="/assets/js/jquery.nice-select.min.js"></script>
+	<script src="/assets/js/jquery-ui.min.js"></script>
+	<script src="/assets/js/jquery.slicknav.js"></script>
+	<script src="/assets/js/mixitup.min.js"></script>
+	<script src="/assets/js/owl.carousel.min.js"></script>
+	<script src="/assets/js/main.js"></script>
+
+
+
+</body>
+
+</html>

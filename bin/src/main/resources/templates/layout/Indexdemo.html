@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="dynamic(main)">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Ogani Template">
+	<meta name="keywords" content="Ogani, unica, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Ogani | Template</title>
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<!-- Css Styles -->
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/font-awesome.min.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/elegant-icons.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/nice-select.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/jquery-ui.min.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/owl.carousel.min.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/slicknav.min.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+	
+	<style>
+	#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: rgb(176, 211, 124);
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+  
+}
+
+	#myBtn:hover {
+  background-color: rgb(86, 151, 129);
+}
+
+.header.fixed {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 7000;
+    box-shadow: 0 0 5px 2px #ccc;
+    background-color: white;
+}
+ 
+</style>
+</head>
+
+<body ng-app="shopping-cart-app" ng-controller="shopping-cart-ctrl">
+	<!-- Page Preloder -->
+	<!-- <div id="preloder">
+		<div class="loader"></div>
+	</div> -->
+	
+	<!--DỮ LIỆU THAY ĐỔI NẰM Ở ĐÂY-->
+	<th:block th:replace="${main}"></th:block>
+	<!-- Scroll Down -->
+	<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up    "></i></button>
+	<!-- FOOOTEER -->
+	<footer class="footer spad ">
+		<div class="container ">
+			<div class="row ">
+				<div class="col-lg-6 col-md-6 ">
+					<div class="footer__about ">
+						<div class="footer__about__logo ">
+							<a href="./index.html "><img src="/assets/img/logo.png " alt=" "></a>
+						</div>
+						<ul>
+							<li>Địa chỉ: Quang Trung, quận 12 TP HCM</li>
+							<li>SĐT: +84 965035988</li>
+							<li>Email: oganishopfpt@gmail.com</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 ">
+					<div class="footer__widget ">
+						<center>
+							<h6>Liên kết hữu ích</h6>
+						</center>
+						<ul>
+							<li><a href="# ">Về chúng tôi</a></li>
+							<li><a href="# ">Về cửa hàng của chúng tôi</a></li>
+							<li><a href="# ">Mua sắm an toàn</a></li>
+							<li><a href="# ">Thông tin giao hàng</a></li>
+							<li><a href="# ">Chính sách bảo mật</a></li>
+							<li><a href="# ">Sơ đồ web của chúng tôi</a></li>
+						</ul>
+
+						<ul>
+							<li><a href="# ">Chúng tôi là ai</a></li>
+							<li><a href="# ">Dịch vụ của chúng tôi</a></li>
+							<li><a href="# ">Dự án</a></li>
+							<li><a href="# ">Liện hệ</a></li>
+							<li><a href="# ">Sự đổi mới</a></li>
+							<li><a href="# ">Lời chứng thực</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="row ">
+				<div class="col-lg-12 ">
+					<div class="footer__copyright ">
+						<div class="footer__copyright__text ">
+							<p>
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								Copyright &copy;
+								<script>
+									document.write(new Date().getFullYear());
+								</script>
+								All rights reserved | This template is made with <i class="fa fa-heart "
+									aria-hidden="true "></i> by <a href="https://colorlib.com "
+									target="_blank ">Colorlib</a>
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							</p>
+						</div>
+						<div class="footer__copyright__payment ">
+							<img src="/assets/img/payment-item.png " alt=" ">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer Section End -->
+	<script src="https://uhchat.net/code.php?f=ab1a41"></script>
+	<!-- Js Plugins -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js "></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js "></script>
+	<script src="/assets/js/bootstrap.min.js "></script>
+	<script src="/assets/js/jquery.nice-select.min.js "></script>
+	<script src="/assets/js/jquery-ui.min.js "></script>
+	<script src="/assets/js/jquery.slicknav.js "></script>
+	<script src="/assets/js/mixitup.min.js "></script>
+	<script src="/assets/js/owl.carousel.min.js "></script>
+	<script src="/assets/js/main.js "></script>
+	<script src="/assets/js/shopping-cart-app.js"></script>
+	<script src="/assets/js/jquery-3.3.1.min.js"></script>
+	<script src="/assets/js/xemthem.js"></script>
+<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js">
+	</script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.min.css">
+	</script>
+	<script type="text/javascript" src="https://cunghocweb.com/data-out/js/jquery.js"></script>
+
+</body>
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+	jQuery(document).ready(function($) {
+	  $(window).load(function() {
+	   if ($('.header').length > 0) {
+	    var _top = $('.header').offset().top - parseFloat($('.header').css('marginTop').replace(/auto/, 0));
+	    $(window).scroll(function(evt) {
+	     var _y = $(this).scrollTop();
+	     if (_y > _top) {
+	      $('.header').addClass('fixed');
+	      $('.main-1').css("margin-top", "30px")
+	     } else {
+	      $('.header').removeClass('fixed');
+	      $('.main-1').css("margin-top", "0")
+	     }
+	    })
+	   }
+	  });
+	 });
+</script>
+</html>

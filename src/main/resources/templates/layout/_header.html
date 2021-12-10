@@ -1,0 +1,104 @@
+<!-- Header Section Begin -->
+<header class="header">
+	<div class="header__top">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-6">
+					<div class="header__top__left">
+						<ul>
+							<li><i class="fa fa-envelope"></i> oganishopfpt@gmail.com</li>
+							<li><i class="fa fa-phone"></i>SĐT :0965035988 (Hỗ trợ 24/7)</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6">
+					
+					<div class="header__top__right">
+						<div class="header__top__right__social">
+
+							<th:block th:unless="${#request.remoteUser}">
+								<div class="header__top__right__auth">
+									<a th:href="@{/security/login/form}"><i class="fa fa-user"></i>
+										Đăng nhập</a>
+								</div>
+							</th:block>
+							<div class="navbar-custom-menu" th:if="${#request.remoteUser}">
+								<div th:object="${userAll}">
+								<ul class="nav navbar-nav">
+
+									<li class="dropdown user user-menu"><a href="#"
+										class="dropdown-toggle" data-toggle="dropdown"> <img
+											th:src="@{|/assets/images/*{image}|}"
+											class="user-image"> <span class="hidden-xs">[[${#request.remoteUser}]]</span>
+									</a>
+										<ul class="dropdown-menu">
+
+											<li class="user-header"><img
+												th:src="@{|/assets/images/*{image}|}"
+												class="img-circle"></li>
+												<center>
+													<li
+														th:if="${#request.isUserInRole('DIRE')or #request.isUserInRole('STAF')}">
+														<a class="nav-link scrollto" th:href="@{/admin}">Administration</a>
+													</li>
+													<li class="user-footer"><a href="/profile/user"
+														class="btn btn-default btn-flat">Tài khoản </a></li>
+													<li><a href="/profile/changepassword"
+														class="btn btn-default btn-flat">Đổi mật khẩu</a></li>
+													<li><a th:href="@{/security/logoff}"
+														class="btn btn-default btn-flat">Đăng xuất</a></li>
+												</center>
+										</ul></li>
+								</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3">
+					<div class="header__logo">
+						<a href="/home"><img src="/assets/images/logooga.png" alt=""></a>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<nav class="header__menu">
+						<ul>
+							<li
+								th:class="${#request.requestURI.contains('home')} ? 'active' : '' "><a
+								th:href="@{/home}">Trang chủ</a></li>
+							<li
+								th:class="${#request.requestURI.contains('shop/page')} ? 'active' : '' "><a
+								th:href="@{/shop/page}">Sản phẩm</a></li>
+							<li
+								th:class="${#request.requestURI.contains('blog')} ? 'active' : '' "><a
+								th:href="@{/blog}">Tin tức</a></li>
+							<li
+								th:class="${#request.requestURI.contains('send/mail')} ? 'active' : '' "><a
+								th:href="@{/send/mail}">Liên hệ</li>
+							<li
+								th:class="${#request.requestURI.contains('order/list')} ? 'active' : '' "
+								th:if="${#request.remoteUser}"><a th:href="@{/order/list}">Lịch
+									sử</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="col-lg-3">
+					<div class="header__cart">
+						<ul>
+							<li><a th:href="@{/favoriteproduct}"><i
+									class="fa fa-heart"></i> <span>{{favo.count}}</span></a></li>
+							<li><a th:href="@{/shopingcart}" ng-click="cart.discount0()"><i
+									class="fa fa-shopping-bag"></i> <span>{{cart.count}}</span></a></li>
+						</ul>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+<!-- Header Section End -->

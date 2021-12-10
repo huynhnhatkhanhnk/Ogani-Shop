@@ -1,0 +1,75 @@
+<div class="card">
+    <div class="card-header card-header-primary">
+        <h4 class="card-title">Thông tin tài khoản</h4>
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <div>Hình ảnh</div>
+                        <label for="image"> <img
+							ng-src="{{'/assets/images/'+ form.image}}"
+							style="height: 300px;">
+						</label> <input type="file" class="form-control" id="image" onchange="angular.element(this).scope().imageChanged(this.files)">
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Tên đăng nhập</label> <input ng-model="form.username" class="form-control" required placeholder="Vui lòng nhập username">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Mật khẩu</label> <input ng-model="form.password" type="password" class="form-control" required placeholder="Vui lòng nhập password">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Họ và tên</label> <input ng-model="form.name" class="form-control" required placeholder="Vui lòng nhập họ tên">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Email</label> <input ng-model="form.email" class="form-control" required placeholder="Vui lòng nhập đúng định dạng email">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Địa chỉ</label> <input ng-model="form.address" class="form-control" required placeholder="Vui lòng nhập địa chỉ">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Số điện thoại</label> <input ng-model="form.phone" class="form-control" required placeholder="Vui lòng nhập số điện thoại">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <center>
+                <button ng-click="create()" class="btn btn-primary pull-right" onclick="add_success('success-message')">
+					<b><i class="fas fa-plus-circle"></i> Thêm mới</b>
+				</button>
+                <button ng-click="update()" class="btn btn-success pull-right" onclick="update_success('success-message')">
+					<b><i class="fas fa-edit"></i> Cập nhật</b>
+				</button>
+                <button ng-click="deleteacc()" class="btn btn-danger pull-right" onclick="dele_success('success-message')">
+					<b><i class="fas fa-recycle"></i> Xóa</b>
+				</button>
+                <button ng-click="reset()" class="btn btn-info pull-right">
+					<b><i class="fas fa-redo-alt"></i> Làm mới</b>
+				</button>
+            </center>
+            <div class="clearfix"></div>
+
+
+        </form>
+        <br> <br> <br> <br> <br>
+
+    </div>
+</div>

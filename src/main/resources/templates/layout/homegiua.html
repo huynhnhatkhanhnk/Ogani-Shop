@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/indexdemo :: dynamic(~{::main})}">
+<body>
+	<main>
+		<th:block th:replace="/layout/_header.html"></th:block>
+		<br>
+		<!-- Hero Section Begin -->
+		<section class="hero">
+			<!---page load popup_content---->
+			<div id="popup_content_wrap" style='display: none'
+				onClick="popup_content('hide')">
+				<div id="popup_content">
+					<center>
+
+						<div class="header__logo">
+							<img src="/assets/img/logo.png" alt="">
+						</div>
+						<h3>CHÀO MỪNG ĐẾN VỚI OGANI</h3>
+						<hr>
+						<div class="col-sm-12">
+							<img src="https://dogifood.vn/Images/news/2105141006-1111.png"
+								alt="">
+						</div>
+						<br>
+						<div class="col-sm-12">
+							<h5>Chúng tôi luôn cung cấp những thực phẩm tươi ngon đến
+								người dùng và những giá trị dinh dưỡng cho cuộc sống thêm tươi
+								đẹp</h5>
+							<br>
+							<div class="row">
+								<div class="col-sm-4">
+									<img
+										src="https://startuanit.net/wp-content/uploads/2021/04/hinh-nen-trai-cay-cho-iphone-23.jpg"
+										alt="">
+								</div>
+								<div class="col-sm-4">
+									<img
+										src="https://forza.com.vn/wp-content/uploads/2020/12/bao-quan-thuc-pham-an-toan.jpg"
+										alt="">
+								</div>
+								<div class="col-sm-4">
+									<img
+										src="https://viettinlaw.com/wp-content/uploads/2020/04/Xin-c%E1%BA%A5p-l%E1%BA%A1i-gi%E1%BA%A5y-ch%E1%BB%A9ng-nh%E1%BA%ADn-c%C6%A1-s%E1%BB%9F-%C4%91%E1%BB%A7-%C4%91i%E1%BB%81u-ki%E1%BB%87n-an-to%C3%A0n-th%E1%BB%B1c-ph%E1%BA%A9m.jpg"
+										alt="">
+								</div>
+							</div>
+						</div>
+						<br>
+					</center>
+				</div>
+				<script type='text/javascript'>
+//<![CDATA[
+var pictureSrc ="https://cdn-icons-png.flaticon.com/512/2909/2909808.png"; //the location of the snowflakes
+var pictureWidth = 25; //the width of the snowflakes
+var pictureHeight = 25; //the height of the snowflakes
+var numFlakes = 10; //the number of snowflakes
+var downSpeed = 0.01; //the falling speed of snowflakes (portion of screen per 100 ms)
+var lrFlakes = 10; //the speed that the snowflakes should swing from side to side
+
+
+if( typeof( numFlakes ) != 'number' || Math.round( numFlakes ) != numFlakes || numFlakes < 1 ) { numFlakes = 10; }
+
+//draw the snowflakes
+for( var x = 0; x < numFlakes; x++ ) {
+if( document.layers ) { //releave NS4 bug
+document.write('<layer id="snFlkDiv'+x+'"><imgsrc="'+pictureSrc+'" height="'+pictureHeight+'"width="'+pictureWidth+'" alt="*" border="0"></layer>');
+} else {
+document.write('<div style="position:absolute; z-index:9999;"id="snFlkDiv'+x+'"><img src="'+pictureSrc+'"height="'+pictureHeight+'" width="'+pictureWidth+'" alt="*"border="0"></div>');
+}
+}
+
+//calculate initial positions (in portions of browser window size)
+var xcoords = new Array(), ycoords = new Array(), snFlkTemp;
+for( var x = 0; x < numFlakes; x++ ) {
+xcoords[x] = ( x + 1 ) / ( numFlakes + 1 );
+do { snFlkTemp = Math.round( ( numFlakes - 1 ) * Math.random() );
+} while( typeof( ycoords[snFlkTemp] ) == 'number' );
+ycoords[snFlkTemp] = x / numFlakes;
+}
+
+//now animate
+function flakeFall() {
+if( !getRefToDivNest('snFlkDiv0') ) { return; }
+var scrWidth = 0, scrHeight = 0, scrollHeight = 0, scrollWidth = 0;
+//find screen settings for all variations. doing this every time allows for resizing and scrolling
+if( typeof( window.innerWidth ) == 'number' ) { scrWidth = window.innerWidth; scrHeight = window.innerHeight; } else {
+if( document.documentElement && (document.documentElement.clientWidth ||document.documentElement.clientHeight ) ) {
+scrWidth = document.documentElement.clientWidth; scrHeight = document.documentElement.clientHeight; } else {
+if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+scrWidth = document.body.clientWidth; scrHeight = document.body.clientHeight; } } }
+if( typeof( window.pageYOffset ) == 'number' ) { scrollHeight = pageYOffset; scrollWidth = pageXOffset; } else {
+if( document.body && ( document.body.scrollLeft ||document.body.scrollTop ) ) { scrollHeight = document.body.scrollTop;scrollWidth = document.body.scrollLeft; } else {
+if(document.documentElement && (document.documentElement.scrollLeft ||document.documentElement.scrollTop ) ) { scrollHeight =document.documentElement.scrollTop; scrollWidth =document.documentElement.scrollLeft; } }
+}
+//move the snowflakes to their new position
+for( var x = 0; x < numFlakes; x++ ) {
+if( ycoords[x] * scrHeight > scrHeight - pictureHeight ) { ycoords[x] = 0; }
+var divRef = getRefToDivNest('snFlkDiv'+x); if( !divRef ) { return; }
+if( divRef.style ) { divRef = divRef.style; } var oPix = document.childNodes ? 'px' : 0;
+divRef.top = ( Math.round( ycoords[x] * scrHeight ) + scrollHeight ) + oPix;
+divRef.left = ( Math.round( ( ( xcoords[x] * scrWidth ) - (pictureWidth / 2 ) ) + ( ( scrWidth / ( ( numFlakes + 1 ) * 4 ) ) * (Math.sin( lrFlakes * ycoords[x] ) - Math.sin( 3 * lrFlakes * ycoords[x]) ) ) ) + scrollWidth ) + oPix;
+ycoords[x] += downSpeed;
+}
+}
+
+//DHTML handlers
+function getRefToDivNest(divName) {
+if( document.layers ) { return document.layers[divName]; } //NS4
+if( document[divName] ) { return document[divName]; } //NS4 also
+if( document.getElementById ) { return document.getElementById(divName); } //DOM (IE5+, NS6+, Mozilla0.9+, Opera)
+if( document.all ) { return document.all[divName]; } //Proprietary DOM - IE4
+return false;
+}
+
+window.setInterval('flakeFall();',100);
+//]]>
+</script>
+			</div>
+			<!---end page load popup_content---->
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3">
+						<div class="hero__categories ">
+							<div class="hero__categories__all ">
+								<i class="fa fa-bars "></i> <span>Danh mục</span>
+							</div>
+							<ul>
+								<li><a th:each="c:${cates}"
+									th:href="@{|/shop/pagecate?cid=${c.categoryid}|}">[[${c.categoryname}]]</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-9 ">
+						<div class="hero__search ">
+							<div class="hero__search__form ">
+								<form th:action="@{/shop/page/1}">
+									<!-- <div class="hero__search__categories ">
+                                    All Categories
+                                    <span class="arrow_carrot-down "></span>
+                                </div> -->
+									<input type="hidden" name="sortField" th:value="${sortField}" />
+									<input type="hidden" name="sortDir" th:value="${sortDir}" /> <input
+										type="text" name="keyword" th:value="${keyword}"
+										placeholder="Tìm kiếm trên Ogani " required />
+									<button type="submit " class="site-btn ">Tìm kiếm</button>
+								</form>
+							</div>
+							<!-- <div class="hero__search__phone ">
+                            <div class="hero__search__phone__icon ">
+                                <i class="fa fa-phone "></i>
+                            </div>
+                            <div class="hero__search__phone__text ">
+                                <h5>+65 11.188.888</h5>
+                                <span>support 24/7 time</span>
+                            </div>
+                        </div> -->
+						</div>
+						<div class="hero__item set-bg "
+							data-setbg="https://media.giphy.com/media/9lLfIw3tc9avroll9q/giphy.gif">
+							<!-- data-setbg="/assets/img/hero/banner.jpg " -->
+							<!-- <img alt="" src="https://i.makeagif.com/media/7-09-2015/C-V3Tn.gif"> -->
+							<div class="hero__text ">
+
+								<img alt="" src="/assets/images/logo_ogani.png "
+									style="width: 254px; height: 131px; margin-top: -295px; margin-left: -65px;">
+							</div>
+							<div class="hero__text ">
+								<img alt="" src="/assets/images/saleogani.png"
+									style="width: 150px; height: 100px; margin-top: -301px; margin-left: 450px;">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<th:block th:replace="/layout/_slideshow.html"></th:block>
+		<th:block th:replace="/layout/_sanphamtop.html"></th:block>
+		<th:block th:replace="/layout/_blog.html"></th:block>
+		<br>
+		<div class="container-fluid ">
+			<div class="row ">
+				<div class="col-lg-12 ">
+					<div class="section-title from-blog__title ">
+						<h2>Bản đồ</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row ">
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d938.0796414392585!2d106.62922187501752!3d10.853553287689698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529b6a2b351a5%3A0x11690ada8c36f9bc!2zVHLGsOG7nW5nIENhbyDEkeG6s25nIFRo4buxYyBow6BuaCBGUFQgUG9seXRlY2huaWMgVFAuSENNIChDUzMp!5e0!3m2!1svi!2s!4v1634380053983!5m2!1svi!2s"
+					width="100%" height="450" style="border: 0;" allowfullscreen=""
+					loading="lazy"></iframe>
+
+			</div>
+		</div>
+		<br>
+	</main>
+</body>
+</html>
+
+

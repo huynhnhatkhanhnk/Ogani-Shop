@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/indexdemo :: dynamic(~{::main})}">
+<main>
+	<th:block th:replace="/layout/_header.html"></th:block>
+	<br>
+	<!-- Breadcrumb Section Begin -->
+	<section class="breadcrumb-section set-bg"
+		data-setbg="/assets/images/bann.jpg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="breadcrumb__text">
+						<h2>Tin tức</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Breadcrumb Section End -->
+
+	<!-- Blog Section Begin -->
+	<section class="blog-details spad" style="font-family:'FontAwesome';">
+		<div class="row">
+			<div class="col-lg-3 col-md-5 order-md-1 order-2" 
+				style="background-color: #EEEEEE; margin-left: 55px; height: 400px;">
+				<div class="blog__sidebar__item" id="vaokhongsp"
+					style="margin-left: 50px; margin-top: 40px;">
+					<h5 style="color: #FFCC00;">
+						<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> CÓ THỂ BẠN
+						QUAN TÂM
+					</h5>
+					<div th:each="bg: ${blog}" class="blog__sidebar__recent" id="showxuongsp">
+						<a th:href="@{|/blogdetails/${bg.id}|}"
+							class="blog__sidebar__recent__item">
+							<div class="row">
+
+								<div class="blog__sidebar__recent__item__pic"
+									style="float: left;">
+									<img th:src="@{|/assets/images/${bg.image}|}" alt=""
+										style="height: 60px; width: 60px;">
+
+
+								</div>
+
+								<div class="col-lg-8">
+									<div class="blog__sidebar__recent__item__text"
+										style="float: right;">
+										<h6>
+											<a th:href="@{|/blogdetails/${bg.id}|}"
+												th:utext="${bg.title}" style="color: #808000;"></a>
+										</h6>
+										<span>[[${bg.createdate}]]</span>
+									</div>
+
+								</div>
+							</div>
+
+						</a>
+					</div>
+				
+			</div>
+		</div>
+			<div th:each="b: ${item}" class="col-lg-8 col-md-7 order-md-1 order-1">
+				<div class="blog__details__text">
+					<div class="blog__item" style="padding-left: 50px;">
+						<div class="blog__item__text">
+							<h2> 
+							<b><a th:utext="${b.title}" style="color: black;"></a></b>
+								
+							</h2>
+						</div>
+						<br>
+						<!-- <div class="blog__item__pic">
+							<img th:src="@{|/assets/img/blog/${b.image}|}" alt=""
+								style="height: 300px;">
+						</div> -->
+						<div class="blog__item__text" style="font-family: 'Helvetica';">
+							<ul>
+								<li><i class="fa fa-calendar-o"></i>[[${b.createdate}]]</li>
+							</ul>
+							<!--  <h5><a th:utext="${b.title}"></a></h5> -->
+							<p style="font-family: 'Helvetica';">  <i>[[${b.contents_short}]]</i>  </p>
+							<div class="blog__item__pic">
+								<img th:src="@{|/assets/images/${b.image1}|}" alt=""
+									style="height: 300px; width: 600px; padding-left: 50px;">
+							</div>
+							
+							<p style="font-family: 'Helvetica';">[[${b.contents_para1}]]</p>
+							
+							<div class="blog__item__pic">
+								<img th:src="@{|/assets/images/${b.image2}|}" alt=""
+									style="height: 300px; width: 600px; padding-left: 50px;">
+							</div>
+								
+							<p style="font-family: 'Helvetica';">[[${b.contents_para2}]]</p>
+							
+							<p style="font-family: 'Helvetica';">[[${b.contents_para3}]]</p>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!-- Blog Section End -->
+
+
+
+</main>
+</html>

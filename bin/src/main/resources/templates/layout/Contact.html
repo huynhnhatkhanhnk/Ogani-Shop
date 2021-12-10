@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/indexdemo :: dynamic(~{::main})}">
+<body>
+	<main>
+		<th:block th:replace="/layout/_header.html"></th:block>
+		<th:block th:replace="/layout/_category.html"></th:block>
+		<!-- Breadcrumb Section Begin -->
+		<section class="breadcrumb-section set-bg"
+			data-setbg="/assets/img/breadcrumb.jpg">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<div class="breadcrumb__text">
+							<h2>Liên Hệ</h2>
+							<!-- <div class="breadcrumb__option">
+                            <a href="./index.html">Home</a>
+                            <span>Liên Hệ</span>
+                        </div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Breadcrumb Section End -->
+
+		<!-- Contact Section Begin -->
+		<section class="contact spad">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-md-3 col-sm-6 text-center">
+						<div class="contact__widget">
+							<span class="icon_phone"></span>
+							<h4>Số điện thoại</h4>
+							<p>+84 965035988</p>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-6 text-center">
+						<div class="contact__widget">
+							<span class="icon_pin_alt"></span>
+							<h4>Địa chỉ</h4>
+							<p>Quang Trung, quận 12 TP HCM</p>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-6 text-center">
+						<div class="contact__widget">
+							<span class="icon_clock_alt"></span>
+							<h4>Giờ hoạt động</h4>
+							<p>9:00 am to 23:00 pm</p>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-6 text-center">
+						<div class="contact__widget">
+							<span class="icon_mail_alt"></span>
+							<h4>Email</h4>
+							<p>oganishopfpt@gmail.com</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Contact Section End -->
+
+
+
+		<!-- Contact Form Begin -->
+		<div class="contact-form spad">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="contact__form__title">
+							<h2>Hộp thư</h2>
+						</div>
+					</div>
+				</div>
+				<form th:action="@{/send/send_mail}" method="POST">
+					<div class="row">
+						<div class="col-lg-6 col-md-6">
+							<input name="name" type="text" placeholder="Họ tên">
+						</div>
+						<div class="col-lg-6 col-md-6">
+							<input name="email" type="email" placeholder="Email">
+						</div>
+						<div class="col-lg-12 col-md-12">
+							<input name="cd" type="text" placeholder="Chủ đề">
+						</div>
+
+						<div class="col-lg-12 col-md-12">
+							<textarea name="mes" placeholder="Nội dung"></textarea>
+						</div>
+						<!--                   <div class="col-lg-4 col-sm-4"> -->
+						<!--                         <div>Đính kèm hình ảnh</div> -->
+						<!--                         <input  type="file" class="form-control" id="image" name="name="upload""  -->
+						<!--                         onchange="angular.element(this).scope().imageChanged(this.files)"> -->
+						<!--                     </div>  -->
+						<center>
+							<div th:if="${error != null}">
+								<h5 style="color: red;">[[${error}]]</h5>
+							</div>
+							<div th:if="${message != null}">
+								<h5 style="color: rgb(124, 252, 0);">[[${message}]]</h5>
+							</div>
+						</center>
+						<div class="col-lg-12 text-center">
+							<br>
+							<button type="submit" class="site-btn">Gửi</button>
+						</div>
+
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- Contact Form End -->
+	</main>
+
+
+
+</body>
+
+</html>

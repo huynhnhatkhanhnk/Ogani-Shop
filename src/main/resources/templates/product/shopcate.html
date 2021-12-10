@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/indexdemo :: dynamic(~{::main})}">
+
+<body>
+	<main>
+		<th:block th:replace="/layout/_header.html"></th:block>
+		<br>
+		<section class="hero hero-normal">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3"></div>
+					<div class="col-lg-9 ">
+						<div class="hero__search ">
+							<div class="hero__search__form ">
+								<form th:action="@{/shop/page/1}">
+									<input type="hidden" name="sortField" th:value="${sortField}" />
+									<input type="hidden" name="sortDir" th:value="${sortDir}" /> <input
+										type="text" name="keyword" th:value="${keyword}"
+										placeholder="Tìm kiếm trên Ogani " required />
+									<button type="submit" class="site-btn ">Tìm kiếm</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="breadcrumb-section set-bg"
+			data-setbg="/assets/images/bann.jpg">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<div class="breadcrumb__text">
+							<h2 style="font-family:Florence, cursive">Sản Phẩm</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Product Section Begin -->
+		<section class="product spad">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="product__discount">
+							<div class="section-title product__discount__title"></div>
+							<th:block th:replace="/layout/_slideshow.html"></th:block>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-lg-3 col-md-5">
+						<div class="sidebar">
+							<div class="sidebar__item" style="margin-top: 50px;">
+								<div class="card">
+							<div class="card-header" style="height: 50px;">
+							   <h4 style="color: #800000;"> <i class="fa fa-search" aria-hidden="true"></i> TÌM KIẾM </h4>
+							  </div>
+								<div class="card-body">
+							    <div class="row">
+								<!--  -->
+								<div class="col-lg-4 col-md-5">
+										<div class="filter__sort">
+											<div class="dropdown"><button class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown">Tìm kiếm theo</button>
+											<div class="dropdown-menu multi-column">
+												<div class="container-fluid">
+													<div class="row-fluid">
+														<div class="span6">
+															<ul class="dropdown-menu">
+																<li><a th:href="@{'/shop/page/' + ${currentPage} + '?sortField=price&sortDir=' + 'asc' + ${keyword != null ? '&keyword=' + keyword : ''}}">Theo giá tăng</a></li>
+																<li><a th:href="@{'/shop/page/' + ${currentPage} + '?sortField=price&sortDir=' + 'desc' + ${keyword != null ? '&keyword=' + keyword : ''}}">Theo giá giảm</a></li>
+															</ul>
+														</div>
+														
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								</div>
+								<!--  -->
+								<br>
+								<div class="row">
+								<div class="col-lg-8 col-md-8">
+									<div class="filter__found">
+										<div>
+											<form th:action="@{/shop/between_price}">
+
+												<input name="priceMin" type="number" class=""
+													placeholder="Giá ban đầu"> 
+												<br><br>	
+												<input name="priceMax"
+													type="number" class="" placeholder="Giá Kết thúc">
+												<br><br>
+												<button class="btn btn-info btn-sm ml-2" style="margin-right: 40px;">Tìm kiếm</button>
+
+											</form>
+										</div>
+									</div>
+								</div>
+								</div>
+								<!--  -->
+							  </div>
+							</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-9 col-md-7">
+
+							<div class="row" id="vaokhongcate">
+								<div th:each="p:${listProducts}" id="showxuongcate"
+									class="col-lg-4 col-md-6 col-sm-6">
+									<div class="product-grid ">
+										<div class="product-image ">
+											<img class="pic-1 "
+												th:src="@{|/assets/images/${p.image}|}" alt=""
+												style="width: 270px; height: 270px;">
+											<ul class="social ">
+												<li><a data-tip="Xem chi tiết" th:href="@{|/shopdetail/${p.productid}|}"><i
+														class="fa fa-search "></i></a></li>
+
+												<li><a data-tip="Yêu thích"
+													th:attr="ng-click=@{|favo.add(${p.productid})|}"
+													onclick="showSwal_favo('success-message')"><i
+														class="fa fa-heart"></i></a></li>
+
+												<li>
+														<a data-tip="Hết hàng" th:unless="${p.status}"><i class="fa fa-times" aria-hidden="true"></i></a>
+														<a data-tip="Thêm vào giỏ" th:if="${p.status}" th:attr="ng-click=@{|cart.add(${p.productid})|}"
+														onclick="showSwal('success-message')"><i class="fa fa-shopping-cart"></i></a>
+												</li>
+											</ul>
+											<span class="product-new-label ">Sale</span> <span
+												class="product-discount-label ">[[${p.sale}]]%</span>
+										</div>
+										<ul class="rating ">
+											<li class="fa fa-star "></li>
+											<li class="fa fa-star "></li>
+											<li class="fa fa-star "></li>
+											<li class="fa fa-star "></li>
+											<li class="fa fa-star disable "></li>
+										</ul>
+										<div class="product-content ">
+											<h3 class="title ">
+												<a th:href="@{|/shopdetail/${p.productid}|}"
+													th:utext="${p.name}"></a>
+											</h3>
+											<div class="price ">
+												<span>[[${p.price}]]</span> <br> [[${p.price} - ${p.price} * ${p.sale} / 100]] VNĐ
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<center>
+						<a style="color: #7fad39; font: bold;" href="" id="showkhongcate">Xem
+							thêm >></a>
+					</center>
+
+							<!-- <div class="product__pagination">
+								Tổng [[${totalItems}]] - [[${currentPage}]] of [[${totalPages}]]
+								&nbsp; &nbsp;
+								<div th:if="${totalPages > 1}">
+								<div th:with="pageUrlPrefix ='/shop/pagecate/'" >
+							
+									<a th:if="${currentPage > 1}" 
+										th:href="@{${pageUrlPrefix} + '1' + '?cid=' + ${categoryid}"><div>
+											<< </div></a> <span th:unless="${currentPage > 1}"><div> << </div></span>
+									<a th:if="${currentPage > 1}" 
+										th:href="@{${pageUrlPrefix} + ${currentPage - 1} + '?cid=' + ${categoryid}}"><i
+										class="fa fa-long-arrow-left"></i></a> <span
+										th:unless="${currentPage > 1}"><i
+										class="fa fa-long-arrow-left"></i></span> <span
+										th:each="i: ${#numbers.sequence(1, totalPages)}"> <a
+										th:if="${i != currentPage}" 
+										th:href="@{${pageUrlPrefix} + ${i} + '?cid=' + ${categoryid}}">[[${i}]]</a>
+										<span th:unless="${i != currentPage}"
+										th:href="@{'/shop/page/' + ${i}}">[[${i}]]</span>
+									</span> <a th:if="${currentPage < totalPages}" 
+										th:href="@{${pageUrlPrefix} + ${currentPage + 1} + '?cid=' + ${categoryid}}"><i
+										class="fa fa-long-arrow-right"></i></a> <span
+										th:unless="${currentPage < totalPages}"><i
+										class="fa fa-long-arrow-right"></i></span> <a 
+										th:if="${currentPage < totalPages}" 
+										th:href="@{${pageUrlPrefix} + ${totalPages} + '?cid=' + ${categoryid}}"><div>
+											>></div></a> <span th:unless="${currentPage < totalPages}"><div>
+											>></div></span>
+								</div>
+								</div>
+							</div> -->
+						</div>
+					</div>
+				</div>
+				</div>
+		</section>
+	</main>
+</body>
+
+</html>

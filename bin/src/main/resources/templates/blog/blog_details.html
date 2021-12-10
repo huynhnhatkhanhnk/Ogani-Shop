@@ -1,0 +1,74 @@
+ 
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/indexdemo :: dynamic(~{::main})}">
+<main>
+	<th:block th:replace="/layout/_header.html"></th:block>
+	<th:block th:replace="/layout/_category.html"></th:block>
+	<!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="/assets/img/breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Tin tức</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Blog Section Begin -->
+    <section class="blog spad">
+        <div class="container">
+            <div th:each="b: ${item}" class="row">
+               <div class="row">
+                        <div th:each="b: ${item}" class="col-lg-9 col-md-9 col-sm-9">
+                            <div class="blog__item">
+                            	<div class="blog__item__text">
+                            	<h3><a th:utext="${b.title}" style="color: red;"></a></h3>
+                            	</div>
+                            	<br>
+                                <div class="blog__item__pic">
+                                    <img th:src="@{|/assets/img/blog/${b.image}|}" alt="" 
+                                    style="height: 400px;">
+                                </div>
+                                <div class="blog__item__text">
+                                    <ul>
+                                        <li><i class="fa fa-calendar-o"></i>[[${b.createdate}]]</li>
+                                        <li><i class="fa fa-comment-o"></i> 5</li>
+                                    </ul>
+                                    <!--  <h5><a th:utext="${b.title}"></a></h5> -->
+									<p>[[${b.contents_short}]]</p>
+                                     <div class="blog__item__pic">
+                                    <img th:src="@{|/assets/img/blog/${b.image1}|}" alt="" 
+                                    style="height: 400px;">
+                                </div>
+                                	<br>
+                                   <p>[[${b.contents_para1}]]</p>
+                                   <br>
+                                   <div class="blog__item__pic">
+                                    <img th:src="@{|/assets/img/blog/${b.image2}|}" alt="" 
+                                    style="height: 400px;">
+                                </div>
+                                   <br>
+                                   <p>[[${b.contents_para2}]]</p>
+                                   <br>
+                                   <p>[[${b.contents_para3}]]</p>
+                                </div>
+                               
+                            </div>
+                        </div>
+                      	<div class="col-lg-4 col-md-4 col-sm-4">
+                      	
+                      	</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Section End -->
+	
+</main>
+</html>
+ 

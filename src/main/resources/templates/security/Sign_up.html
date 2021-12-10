@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Ogani Template">
+<meta name="keywords" content="Ogani, unica, creative, html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Ogani | Sign up</title>
+
+<!-- Google Font -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
+	rel="stylesheet">
+
+<!-- Css Styles -->
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css"
+	type="text/css">
+<link rel="stylesheet" href="/assets/css/font-awesome.min.css"
+	type="text/css">
+<link rel="stylesheet" href="/assets/css/elegant-icons.css"
+	type="text/css">
+<link rel="stylesheet" href="/assets/css/nice-select.css"
+	type="text/css">
+<link rel="stylesheet" href="/assets/css/jquery-ui.min.css"
+	type="text/css">
+<link rel="stylesheet" href="/assets/css/owl.carousel.min.css"
+	type="text/css">
+<link rel="stylesheet" href="/assets/css/slicknav.min.css"
+	type="text/css">
+<link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+<!--Bootsrap 4 CDN-->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<!--Fontawesome CDN-->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+	crossorigin="anonymous">
+<!--Custom styles-->
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<style>
+/* Made with love by Mutiullah Samim*/
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+.hi {
+	background-image: url('https://c.wallhere.com/photos/ca/d0/food_pizza_tomatoes_spices_Onions_vegetables-2011021.jpg!d');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 1200px;
+	font-family: 'Numans', sans-serif;
+}
+
+.container {
+	height: 100%;
+	align-content: center;
+}
+
+.card {
+	height: 900px;
+	margin-top: auto;
+	margin-bottom: auto;
+	width: 500px;
+	background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.social_icon span {
+	font-size: 60px;
+	margin-left: 10px;
+	color: chartreuse;
+}
+
+.social_icon span:hover {
+	color: white;
+	cursor: pointer;
+}
+
+.card-header h3 {
+	color: white;
+}
+
+.social_icon {
+	position: absolute;
+	right: 20px;
+	top: -45px;
+}
+
+.input-group-prepend span {
+	width: 50px;
+	color: rgb(0, 0, 0);
+	border: 0 !important;
+}
+
+input:focus {
+	outline: 0 0 0 0 !important;
+	box-shadow: 0 0 0 0 !important;
+}
+
+.remember {
+	color: white;
+}
+
+.remember input {
+	width: 20px;
+	height: 20px;
+	margin-left: 15px;
+	margin-right: 5px;
+}
+
+.login_btn {
+	color: black;
+	background-color: #00f30c;
+	width: 150px;
+	margin-left: 30%;
+}
+
+.login_btn:hover {
+	color: black;
+	background-color: white;
+}
+
+.links {
+	color: white;
+}
+
+.links a {
+	margin-left: 4px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=BenchNine:700);
+
+.snip1582 {
+	background-color: #00f30c;
+	border: none;
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-block;
+	font-family: 'BenchNine', Arial, sans-serif;
+	font-size: 1em;
+	font-size: 22px;
+	line-height: 1em;
+	margin: 15px 40px;
+	outline: none;
+	padding: 12px 40px 10px;
+	position: relative;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.snip1582:before, .snip1582:after {
+	border-color: transparent;
+	-webkit-transition: all 0.25s;
+	transition: all 0.25s;
+	border-style: solid;
+	border-width: 0;
+	content: "";
+	height: 24px;
+	position: absolute;
+	width: 24px;
+}
+
+.snip1582:before {
+	border-color: #00f30c;
+	border-top-width: 2px;
+	left: 0px;
+	top: -5px;
+}
+
+.snip1582:after {
+	border-bottom-width: 2px;
+	border-color: #00f30c;
+	bottom: -5px;
+	right: 0px;
+}
+
+.snip1582:hover, .snip1582.hover {
+	background-color: #00f30c;
+}
+
+.snip1582:hover:before, .snip1582.hover:before, .snip1582:hover:after,
+	.snip1582.hover:after {
+	height: 100%;
+	width: 100%;
+}
+</style>
+</head>
+
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Humberger Begin -->
+	<div class="humberger__menu__overlay"></div>
+	<div class="humberger__menu__wrapper">
+		<div class="humberger__menu__logo">
+			<a href="#"><img src="/assets/img/logo.png" alt=""></a>
+		</div>
+		<div class="humberger__menu__cart">
+			<ul>
+				<li><a href="#"><i class="fa fa-heart"></i></a></li>
+				<li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
+			</ul>
+		</div>
+		<div class="humberger__menu__widget">
+
+			<div class="header__top__right__auth">
+				<a href="#"><i class="fa fa-user"></i>Đăng nhập</a>
+			</div>
+		</div>
+		<nav class="humberger__menu__nav mobile-menu">
+			<ul>
+				<li class="active"><a href="/home">TRANG CHỦ</a></li>
+				<li><a href="/shop/page">SẢN PHẨM</a></li>
+				<li><a href="/blog">TIN TỨC</a></li>
+				<li><a href="/send/mail">LIÊN HỆ</a></li>
+			</ul>
+		</nav>
+		<div id="mobile-menu-wrap"></div>
+		<div class="header__top__right__social">
+			<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
+				class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a>
+			<a href="#"><i class="fa fa-pinterest-p"></i></a>
+		</div>
+		<div class="humberger__menu__contact">
+			<ul>
+				<li><i class="fa fa-envelope"></i> khanhhnps12852@fpt.edu.vn</li>
+			</ul>
+		</div>
+	</div>
+	<!-- Humberger End -->
+
+	<!-- Header Section Begin -->
+	<header class="header">
+		<div class="header__top">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-6">
+						<div class="header__top__left">
+							<ul>
+								<li><i class="fa fa-envelope"></i> oganishopfpt@gmail.com</li>
+								<li><i class="fa fa-phone"></i>SĐT :0965035988 (Hỗ trợ
+									24/7)</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6">
+						<div class="header__top__right">
+							<div class="header__top__right__social">
+								<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
+									class="fa fa-twitter"></i></a> <a href="#"><i
+									class="fa fa-linkedin"></i></a> <a href="#"><i
+									class="fa fa-pinterest-p"></i></a>
+							</div>
+
+							<div class="header__top__right__auth">
+								<a href="/security/login/form"><i class="fa fa-user"></i> Login</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3">
+					<div class="header__logo">
+						<a href="./index.html"><img src="/assets/img/logo.png" alt=""></a>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<nav class="header__menu">
+						<ul>
+							<li class="active"><a href="/home">TRANG CHỦ</a></li>
+							<li><a href="/shop/page">SẢN PHẨM</a></li>
+							<li><a href="/blog">TIN TỨC</a></li>
+							<li><a href="/send/mail">LIÊN HỆ</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="col-lg-3">
+					<div class="header__cart">
+						<ul>
+							<li><a href="#"><i class="fa fa-heart"></i></a></li>
+							<li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="humberger__open">
+				<i class="fa fa-bars"></i>
+			</div>
+		</div>
+	</header>
+	<!-- Header Section End -->
+	<div class="hi">
+		<div class="container">
+			<div class="d-flex justify-content-center h-100">
+				<div class="card">
+					<div class="card-header">
+						<center>
+							<h3 style="font-style: Verdana; color: #F0F8FF;">
+								<b>ĐĂNG KÍ</b>
+							</h3>
+						</center>
+					</div>
+					<div class="card-body">
+						<b style="color: red;"> <i>[[${message}]] </i></b>
+						<form th:action="@{/account/saveOrUpdate}" method="post"
+							th:object="${account}" class="register-form" id="register-form"
+							onsubmit="return validateForm()">
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fas fa-user"></i></span>
+								</div>
+								<input th:field="*{username}" name=username type="text"
+									class="form-control" placeholder="Tên tài khoản">
+							</div>
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fas fa-key"></i></span>
+								</div>
+								<input th:field="*{password}" name=password type="password" id="password"
+									class="form-control" placeholder="Mật khẩu" autofocus>
+							</div>
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fas fa-key"></i></span>
+								</div>
+								<input name="confirmPassword" type="password" class="form-control"
+									placeholder="Nhập lại mật khẩu" oninput="checkPasswordMatch(this);">
+							</div>
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fas fa-address-card"></i></span>
+								</div>
+								<input th:field="*{name}" name=name type="text"
+									class="form-control" placeholder="Tên khách hàng">
+							</div>
+
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fas fa-shield-alt"></i></span>
+								</div>
+								<input th:field="*{address}" name=address type="address"
+									class="form-control" placeholder="Địa chỉ">
+							</div>
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fas fa-phone"></i></span>
+								</div>
+								<input th:field="*{phone}" name=phone type="number"
+									class="form-control" placeholder="Số điện thoại">
+							</div>
+							<div class="input-group form-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i
+										class="fas fa-envelope"></i></span>
+								</div>
+								<input th:field="*{email}" name=email type="email"
+									class="form-control" placeholder="Email">
+									
+							</div>
+							 <input type="file" class="form-control" th:field="*{image}" name=image id="image">
+									
+							<div class="form-check">
+								<label class="form-check-label" style="color: white;"> <input
+									type="checkbox" class="form-check-input"> Bằng cách
+									đăng ký, bạn đồng ý với các điều khoản sử dụng và chính sách
+									bảo mật của chúng tôi
+								</label>
+							</div>
+							<br>
+							<div class="form-group form-button">
+								<center>
+									<button type="submit" name="signup" id="signup"
+										class="snip1582" />
+									Đăng kí
+									</button>
+								</center>
+							</div>
+						</form>
+					</div>
+					<div class="card-footer">
+						<center>
+							<div style="color: white;">
+								Bạn đã có tài khoản? <a href="/security/login/form">Đăng nhập</a>
+							</div>
+						</center>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<script>
+		function validateForm() {
+			// Bước 1: Lấy giá trị của username và password
+			var username = document.getElementById('username').value;
+			var password = document.getElementById('password').value;
+			var name = document.getElementById('name').value;
+			var email = document.getElementById('email').value;
+			var phone = document.getElementById('phone').value;
+			
+			
+
+			// Bước 2: Kiểm tra dữ liệu hợp lệ hay không
+			if (username == '') {
+				//alert('Vui lòng nhập Username');
+					swal({
+					title: 'Vui lòng nhập Username!',
+					button: {
+					text: "Continue",
+					value: true,
+					visible: true,
+					className: "btn btn-primary"
+					}
+					})
+					
+			} else if (password == '') {
+				//alert('Vui lòng nhập Password');
+					swal({
+					title: 'Vui lòng nhập Password!',
+					button: {
+					text: "Continue",
+					value: true,
+					visible: true,
+					className: "btn btn-primary"
+					}
+					})
+					
+			} else if (name == '') {
+				//alert('Vui lòng nhập tên của bạn');
+				
+					swal({
+					title: 'Vui lòng nhập tên của bạn!',
+					button: {
+					text: "Continue",
+					value: true,
+					visible: true,
+					className: "btn btn-primary"
+					}
+					})
+					
+						
+			} else if (phone == '') {
+				//alert('Vui lòng nhập số điện thoại');
+				
+					swal({
+					title: 'Vui lòng nhập số điện thoại!',
+					button: {
+					text: "Continue",
+					value: true,
+					visible: true,
+					className: "btn btn-primary"
+					}
+					})
+					
+						
+			} else if (email == '') {
+				//alert('Vui lòng nhập Email');
+				
+					swal({
+					title: 'Vui lòng nhập Email!',
+					button: {
+					text: "Continue",
+					value: true,
+					visible: true,
+					className: "btn btn-primary"
+					}
+					})
+					
+						
+			} else {
+				//alert('Bạn đã đăng kí thành công!!!');
+				
+				swal({
+				title: 'Đăng ký thành công!',
+				type: 'success',
+				button: {
+				text: "Continue",
+				value: true,
+				visible: true,
+				className: "btn btn-primary"
+				}
+				})
+				
+				return true;
+			}
+			return false;
+		}
+		function checkPasswordMatch(fieldConfirmPassword) {
+			if (fieldConfirmPassword.value != $("#password")
+					.val()) {
+				fieldConfirmPassword
+						.setCustomValidity("Passwords không trùng khớp!");
+			} else {
+				fieldConfirmPassword.setCustomValidity("");
+			}
+		}
+	</script>
+
+	<!-- Js Plugins -->
+	<script src="/assets/js/jquery-3.3.1.min.js"></script>
+	<script src="/assets/js/bootstrap.min.js"></script>
+	<script src="/assets/js/jquery.nice-select.min.js"></script>
+	<script src="/assets/js/jquery-ui.min.js"></script>
+	<script src="/assets/js/jquery.slicknav.js"></script>
+	<script src="/assets/js/mixitup.min.js"></script>
+	<script src="/assets/js/owl.carousel.min.js"></script>
+	<script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

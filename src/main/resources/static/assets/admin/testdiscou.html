@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<head>
+    <title>Demo Discount Codes Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <script type="text/javascript" src="https://www.tfaforms.com/wForms/3.11/js/wforms.js?v=1638347396"></script>
+
+    <script type="text/javascript" src="https://www.tfaforms.com/wForms/3.11/js/localization-en_US.js?v=1638347396"></script>
+</head>
+
+<body>
+    <div class="">
+        <h3>Demo Discount Codes Form</h3>
+        <form method="" action="">
+            <div>
+                <div>
+                    <div>Try discount codes:</div>
+                    <div><br></div>
+                    <div>Free: free123, free456, or free789</div>
+                    <div>10% off: ten1, ten2, ten3</div>
+                    <div>20% off: twenty, twenty1, twenty2</div>
+                    <div>$20 off:&nbsp;<span style="font-size: 14.4px; word-spacing: normal;">dollarcode1,
+                            dollarcode2</span></div>
+                    <div>$25 off: dollarcode3, dollarcode4</div>
+                </div>
+            </div>
+            <div id="tfa_2255" class="section inline group">
+                <!-- <div>
+                    <label>Number of
+                        tickets</label><br>
+                    <div><select aria-required="true" title="Number of tickets" class="calc-tickets required">
+                            <option value="">Please select...</option>
+                            <option >1</option>
+                            <option >2</option>
+                            <option >3</option>
+                            <option >4</option>
+                            <option >5</option>
+                        </select></div>
+                </div> -->
+                <div>
+                    <label>Discount Code</label><br>
+                    <div><input type="text" value="" title="Discount Code" class="calc-coupon"></div>
+                </div>
+                <div>
+                    <label>Total</label><br>
+                    <div>
+                        <div>$</div>
+                        <input type="text" value="" readonly title="Total" class="formula=calculateDiscountCode(coupon,price) readonly">
+                    </div>
+                </div>
+            </div>
+            <fieldset class="section">
+                <legend>Hidden Fields</legend>
+
+                <div class="section inline group">
+
+                    <div>
+                        <label>Ticket
+                            cost</label><br>
+                        <div><input aria-required="true" type="text" value="20" min="1" title="Ticket cost" class="validate-float calc-price required"></div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+    </div>
+
+
+    <script src='https://www.tfaforms.com/js/iframe_message_helper_internal.js?v=2'></script>
+    <script>
+        //discountCode is designed to be reference in a FormAssembly calculated field
+        function calculateDiscountCode(coupon, subtotal) {
+            //set codes    
+            //this section is for percentage off codes
+            var free = ['free123', 'free456', 'free789'];
+            var percent10 = ['ten1', 'ten2', 'ten3'];
+            var percent20 = ['twenty', 'twenty1', 'twenty2'];
+            //this section is for dollar-value codes
+            var dollars20 = ['dollarcode1', 'dollarcode2'];
+            var dollars25 = ['dollarcode3', 'dollarcode4'];
+            //set default values to no discount
+            var amount = subtotal;
+            var coupon = coupon;
+            var percentDiscount = 1;
+            var dollarDiscount = 0;
+
+            //adjust percentdiscount variable if the coupon code entered matches
+            if (free.includes(coupon)) {
+                percentDiscount = 0
+            } else {
+                if (percent10.includes(coupon)) {
+                    percentDiscount = .9
+                } else {
+                    if (percent20.includes(coupon)) {
+                        percentDiscount = .8
+                    }
+                }
+            };
+
+            //adjust dollar-value variable if the coupon code entered matches
+            if (dollars20.includes(coupon)) {
+                dollarDiscount = 20
+            } else {
+                if (dollars25.includes(coupon)) {
+                    dollarDiscount = 25
+                }
+            };
+
+            //calculate and ensure non-negative total
+            var totalAmount = amount * percentDiscount - dollarDiscount;
+            if (totalAmount < 0) {
+                totalAmount = 0
+            };
+
+            return totalAmount;
+
+        };
+    </script>
+</body>
+
+</html>

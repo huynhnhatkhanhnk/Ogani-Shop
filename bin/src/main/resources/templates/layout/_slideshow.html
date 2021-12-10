@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- Categories Section Begin -->
+<section class="categories ">
+        <div class="container ">
+            <div class="row ">
+                <div class="categories__slider owl-carousel ">
+                    <div th:each="c:${cates}" class="col-lg-3 ">
+                        <div class="categories__item set-bg " data-setbg="/assets/img/categories/cat-1.jpg ">
+                            <h5><a th:href="@{|/shop/page?cid=${c.categoryid}|}">[[${c.categoryname}]]</a></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Categories Section End -->

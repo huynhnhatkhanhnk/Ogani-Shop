@@ -1,0 +1,64 @@
+
+<section class="featured spad ">
+	<div class="container ">
+
+		<div class="row ">
+			<div class="col-lg-12 ">
+				<div class="section-title ">
+					<h2>Sản phẩm</h2>
+				</div>
+				<div class="featured__controls ">
+					<ul>
+						<li class="active " data-filter="*">Tất cả</li>	
+						<li th:each="c:${cates}" th:data-filter="'.' + ${c.categoryid} ">[[${c.categoryname}]]</li>
+						<!-- <li data-filter=".oranges ">TrÃ¡i cÃ¢y</li>
+						<li data-filter=".fresh-meat ">Thá»‹t</li>
+						<li data-filter=".vegetables ">Rau</li>
+						<li data-filter=".fastfood ">CÃ¡</li> -->
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="row featured__filter "> <!-- col-md-3 col-sm-6 mix fastfood oranges -->
+			<div th:each="p:${items}" 
+				class="col-md-3 col-sm-6 mix" th:classappend="${p.category.categoryid}">
+				<div class="product-grid ">
+					<div class="product-image ">
+						<img class="pic-1 " th:src="@{|/assets/img/featured/${p.image}|}"
+							alt="" style="width: 270px; height: 270px;">
+						<ul class="social ">
+							<li><a href=" " data-tip="Quick View "><i
+									class="fa fa-search "></i></a></li>
+							<li><a data-tip="YÃªu thÃ­ch"
+								th:attr="ng-click=@{|favo.add(${p.productid})|}"><i
+									class="fa fa-heart"></i></a></li>
+
+							<li><a data-tip="ThÃªm vÃ o giá»�"
+								th:attr="ng-click=@{|cart.add(${p.productid})|}"><i
+									class="fa fa-shopping-cart"></i></a></li>
+						</ul>
+						<span class="product-new-label ">Sale</span> <span
+							class="product-discount-label ">20%</span>
+					</div>
+					<ul class="rating ">
+						<li class="fa fa-star "></li>
+						<li class="fa fa-star "></li>
+						<li class="fa fa-star "></li>
+						<li class="fa fa-star "></li>
+						<li class="fa fa-star disable "></li>
+					</ul>
+					<div class="product-content ">
+						<h3 class="title ">
+							<a th:href="@{|/shopdetail/${p.productid}|}" th:utext="${p.name}"></a>
+						</h3>
+						<div class="price ">
+							<span>20.000 VNĐ</span> <br> [[${p.price}]] VNĐ
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<center><a style="color: #7fad39; font: bold; " href="">Xem thêm >></a></center>
+	</div>
+</section>

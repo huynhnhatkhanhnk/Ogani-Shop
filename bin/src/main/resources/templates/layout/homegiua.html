@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/indexdemo :: dynamic(~{::main})}">
+<body>
+    <main>
+		<th:block th:replace="/layout/_header.html"></th:block>
+		<!-- Hero Section Begin -->
+		<section class="hero">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3">
+					<div class="hero__categories ">
+						<div class="hero__categories__all ">
+							<i class="fa fa-bars "></i> <span>Danh mục</span>
+						</div>
+						<ul>
+							<li><a th:each="c:${cates}"
+									th:href="@{|/shop/page?cid=${c.categoryid}|}">[[${c.categoryname}]]</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-9 ">
+					<div class="hero__search ">
+						<div class="hero__search__form ">
+							<form action="# ">
+								<!-- <div class="hero__search__categories ">
+                                    All Categories
+                                    <span class="arrow_carrot-down "></span>
+                                </div> -->
+								<input type="text " placeholder="Tìm kiếm trên Ogani">
+								<button type="submit " class="site-btn ">Tìm kiếm</button>
+							</form>
+						</div>
+					</div>
+					<div class="hero__item set-bg " data-setbg="/assets/img/hero/banner.jpg ">
+						<div class="hero__text ">
+							<span>FRUIT FRESH</span>
+							<h2>
+								Vegetable <br />100% Organic
+							</h2>
+							<p>Free Pickup and Delivery Available</p>
+							<a href="/shop/page" class="primary-btn ">SHOP NOW</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</section>
+        <th:block th:replace="/layout/_slideshow.html"></th:block>
+        <th:block th:replace="/layout/_sanphamtop.html"></th:block>
+        <th:block th:replace="/layout/_blog.html"></th:block>
+        <br>
+    <div class="container-fluid ">
+        <div class="row ">
+            <div class="col-lg-12 ">
+                <div class="section-title from-blog__title ">
+                    <h2>Bản đồ</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d938.0796414392585!2d106.62922187501752!3d10.853553287689698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529b6a2b351a5%3A0x11690ada8c36f9bc!2zVHLGsOG7nW5nIENhbyDEkeG6s25nIFRo4buxYyBow6BuaCBGUFQgUG9seXRlY2huaWMgVFAuSENNIChDUzMp!5e0!3m2!1svi!2s!4v1634380053983!5m2!1svi!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+           
+        </div>
+    </div>
+    <br>
+    </main>
+</body>
+</html>
+
+

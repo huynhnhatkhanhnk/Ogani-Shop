@@ -1,0 +1,10 @@
+<div xmlns:th="http://www.thymeleaf.org">
+<div class="panel panel-primary">
+    <div class="panel-body text-center">
+    	<i class="glyphicon glyphicon-shopping-cart" style="font-size: 25px;"></i>
+        <a th:href="@{/favorite_product/favorite_product}">{{favo.count}} items x ${{favo.amount | number : 2}}</a>
+        <i class="glyphicon glyphicon-shopping-cart" style="font-size: 25px;"></i>
+        <a th:href="@{/cart/shoping-cart}">{{cart.count}} items x ${{cart.amount | number : 2}}</a>
+    </div>
+</div>
+</div>

@@ -1,0 +1,28 @@
+<div class="col-md-12">
+	<div class="card card-plain">
+		<div class="card-header card-header-primary">
+			<h4 class="card-title mt-0">DANH SÁCH TÀI KHOẢN</h4>
+		</div>
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr style="background-color: aquamarine">
+							<th></th>
+							<th ng-repeat="role in roles" class="text-center">{{role.name}}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="acc in admins">
+							<td>{{acc.username}}</td>
+							<th ng-repeat="role in roles" class="text-center"><input
+								ng-checked="authority_of(acc,role)"
+								ng-click="authority_changed(acc,role)" type="checkbox">
+							</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

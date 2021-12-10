@@ -1,0 +1,316 @@
+.value_box input {
+    background: #F0F0E9;
+    border: medium none;
+    border-radius: 5px;
+    color: #B2B2B2;
+    font-family: 'roboto';
+    font-size: 13px;
+    font-weight: 400px;
+    height: 35px;
+    outline: medium none;
+    padding-left: 7px;
+    width: 195px;
+    background-image: url(../images/home/searchicon.png);
+    background-repeat: no-repeat;
+    background-position: 170px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.fa-pull-right {
+    background-color: #fff;
+    border: 0 none;
+    border-radius: 0;
+    color: #909090;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    margin-bottom: 25px;
+    margin-right: 5px;
+    margin-top: 6px;
+}
+
+.fa-pull-right:hover {
+    color: #FE980F;
+}
+
+.view-product img {
+    position: center center;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.view-product img:hover {
+    transform: scale(1.2);
+}
+
+/* CART Ở DETAIL*/
+.cart .fa-shopping-cart {
+    margin-right: 5px;
+}
+
+/*INFO */
+.product-image-wrapper,
+.product-image-wrapper .productinfo {
+    overflow: hidden;
+    margin-bottom: 30px;
+    position: relative;
+
+}
+
+.product-image-wrapper:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+
+.product-image-wrapper {
+    font-family: Poppins, sans-serif;
+    text-align: center;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1;
+    transition: all .3s ease 0s
+}
+
+.productinfo h2 {
+    color: #FE980F;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.productinfo p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #696763;
+}
+
+.productinfo img {
+    height: 200px;
+    max-width: 100%;
+}
+
+/*MỘT CHÚT HIỆU ỨNG*/
+
+.product-image-wrapper {
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    position: relative;
+    transition: all .5s ease 0s
+}
+
+.product-image-wrapper .productinfo a {
+    display: block
+}
+
+.product-image-wrapper .social {
+    background-color: #fff;
+    width: 100%;
+    padding: 0;
+    margin: 1;
+    list-style: none;
+    opacity: 0;
+    transform: translateX(-50%);
+    position: absolute;
+    bottom: -50%;
+    left: 50%;
+    z-index: 1;
+    transition: all .5s ease 0s
+}
+
+.product-image-wrapper:hover .social {
+    opacity: 1;
+    bottom: 20px
+}
+
+.product-image-wrapper .social li {
+    display: inline-block
+}
+
+.product-image-wrapper .social li a {
+    background: white;
+    color: #909090;
+    font-size: 16px;
+    line-height: 45px;
+    text-align: center;
+    height: 45px;
+    width: 45px;
+    margin: 0 7px;
+    border: 1px solid #909090;
+    border-radius: 50px;
+    display: block;
+    position: relative;
+    transition: all .3s ease-in-out
+}
+
+.product-image-wrapper .social li a:hover {
+    color: #fff;
+    background-color: #FE980F;
+    width: 80px
+}
+
+.product-image-wrapper .social li a:after,
+.product-image-wrapper .social li a:before {
+    content: attr(data-tip);
+    color: #fff;
+    background-color: #FE980F;
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 20px;
+    padding: 1px 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-50%);
+    position: absolute;
+    left: 50%;
+    top: -30px
+}
+
+.product-image-wrapper .social li a:after {
+    content: '';
+    height: 15px;
+    width: 15px;
+    border-radius: 0;
+    transform: translateX(-50%) rotate(45deg);
+    top: -20px;
+    z-index: -1
+}
+
+.product-image-wrapper .social li a:hover:after,
+.product-image-wrapper .social li a:hover:before {
+    opacity: 1
+}
+
+/*BUTTONNNNNN*/
+
+.product-image-wrapper .social li button {
+    background: white;
+    color: #909090;
+    font-size: 16px;
+    line-height: 45px;
+    text-align: center;
+    height: 45px;
+    width: 45px;
+    margin: 0 7px;
+    border: 1px solid #909090;
+    border-radius: 50px;
+    display: block;
+    position: relative;
+    transition: all .3s ease-in-out
+}
+
+.product-image-wrapper .social li button:hover {
+    color: #fff;
+    background-color: #FE980F;
+    width: 80px
+}
+
+.product-image-wrapper .social li button:after,
+.product-image-wrapper .social li button:before {
+    content: attr(data-tip);
+    color: #fff;
+    background-color: #FE980F;
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 20px;
+    padding: 1px 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-50%);
+    position: absolute;
+    left: 50%;
+    top: -30px
+}
+
+.product-image-wrapper .social li button:after {
+    content: '';
+    height: 15px;
+    width: 15px;
+    border-radius: 0;
+    transform: translateX(-50%) rotate(45deg);
+    top: -20px;
+    z-index: -1
+}
+
+.product-image-wrapper .social li button:hover:after,
+.product-image-wrapper .social li button:hover:before {
+    opacity: 1
+}
+
+
+/*LOGIN*/
+.login-or {
+    position: relative;
+    font-size: 18px;
+    color: #aaa;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.span-or {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    margin-left: -25px;
+    background-color: #fff;
+    width: 50px;
+    text-align: center;
+}
+
+.hr-or {
+    background-color: #cdcdcd;
+    width: 70%;
+    height: 1px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+h3 {
+    text-align: center;
+    line-height: 300%;
+}
+
+.login {
+    width: 600px;
+    margin: 0 auto;
+}
+.login input.in{
+  background: transparent;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s; }
+
+  .form-control:hover, .form-control:focus {
+    background: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-color: rgb(128, 128, 128); }
+  .form-control:focus {
+    border-color: rgb(128, 128, 128); }
+.btn.facebook{
+    color: #fff;
+    background-color: #129af7;
+    border-color: #129af7;
+    width: 150px;
+    margin-left: 130px;
+}
+.btn.facebook:hover{
+    color: #fff;
+    background-color: #1678b9;
+}
+
+.btn.google{
+    width: 150px;
+    margin-left: 5px;
+}

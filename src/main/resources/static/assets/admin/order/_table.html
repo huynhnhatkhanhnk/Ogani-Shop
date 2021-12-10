@@ -1,0 +1,303 @@
+<br>
+<div class="row">
+	<div id="filter-order"
+		class="col-md-3 col-md-push-9 col-sm-12 hidden-sm hidden-xs">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					<i class="fa fa-filter"></i> <font style="vertical-align: inherit;">
+						<font style="vertical-align: inherit;"> <a
+							style="color: navy;">Lọc</a></font>
+					</font>
+				</h3>
+			</div>
+			<div class="panel-body">
+				<div class="form-group">
+					<label class="control-label" for="input-order-id"><font
+						style="vertical-align: inherit;"><font
+							style="vertical-align: inherit;">Mã Order</font></font></label> <input
+						type="text" name="filter_order_id" value=""
+						placeholder="Nhập mã Order" id="input-order-id"
+						class="form-control" ng-model="searchText.id" />
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="input-customer"><font
+						style="vertical-align: inherit;"><font
+							style="vertical-align: inherit;">Tên người dùng</font></font></label> <input
+						type="text" name="filter_customer" value=""
+						placeholder="Nhập tên người dùng" id="input-customer"
+						class="form-control" autocomplete="off"
+						ng-model="searchText.account.username" />
+					<ul class="dropdown-menu"></ul>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="input-customer"><font
+						style="vertical-align: inherit;"><font
+							style="vertical-align: inherit;">Địa chỉ</font></font></label> <input
+						type="text" name="filter_customer" value=""
+						placeholder="Nhập địa chỉ" id="input-customer"
+						class="form-control" autocomplete="off"
+						ng-model="searchText.address" />
+					<ul class="dropdown-menu"></ul>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="input-customer"><font
+						style="vertical-align: inherit;"><font
+							style="vertical-align: inherit;">Số điện thoại</font></font></label> <input
+						type="text" name="filter_customer" value=""
+						placeholder="Nhập số điện thoại" id="input-customer"
+						class="form-control" autocomplete="off"
+						ng-model="searchText.numberphone" />
+					<ul class="dropdown-menu"></ul>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="input-date-added"><font
+						style="vertical-align: inherit;"><font
+							style="vertical-align: inherit;">Ngày thêm</font></font></label>
+					<div class="input-group date">
+						<!-- <input
+							ng-model=" form.createDate" type="date" class="form-control"> -->
+						<!-- 		<input class="datepicker" data-date-format="mm/dd/yyyy"
+							placeholder="Nhập theo năm-tháng-ngày"
+							ng-model=" searchText.createDate">  -->
+						<input type="text" name="filter_customer" value=""
+							placeholder="Năm-tháng-ngày" id="input-customer"
+							class="form-control" autocomplete="off"
+							data-date-format="mm/dd/yyyy" ng-model="searchText.createDate" />
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+	<div class="col-md-9 col-md-pull-3 col-sm-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					<i class="fa fa-list" style="color: Green"></i> <font
+						style="vertical-align: inherit;"> <font
+						style="vertical-align: inherit;"> <a style="color: Green">Danh
+								sách hóa đơn</a></font>
+					</font>
+
+					<button type="button" onclick="ExportToExcel('xlsx')"
+						class="btn btn-danger">
+						<i class="fas fa-file-excel"></i>
+					</button>
+
+				</h3>
+			</div>
+			<div class="col-md-12">
+				<div class="card card-plain">
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table table-striped table-hover"
+								id="tbl_exporttable_to_xls" border="1">
+								<thead>
+									<tr style="background-color: aquamarine">
+										<th style="font-weight: bolder;">
+											<h5>ID</h5>
+										</th>
+										<th style="font-weight: bolder;">
+											<h5>Tên người dùng</h5>
+										</th>
+										<th style="font-weight: bolder;">
+											<h5>Ngày tạo</h5>
+										</th>
+										<th style="font-weight: bolder;">
+											<h5>Địa chỉ</h5>
+										</th>
+										<th style="font-weight: bolder;">
+											<h5>Số điện thoại</h5>
+										</th>
+										<th style="font-weight: bolder;">
+											<h5>Tình trạng</h5>
+										</th>
+										<th></th>
+									</tr>
+								</thead>
+								<br>
+								<tbody>
+									<tr
+										dir-paginate="item in items | orderBy:'-createDate' | filter:searchText | itemsPerPage: 5 ">
+										<td>{{item.id}}</td>
+										<td>{{item.account.username}}</td>
+										<td>{{item.createDate}}</td>
+										<td>{{item.address}}</td>
+										<td>{{item.numberphone}}</td>
+										<td>
+											<p class="text-muted">
+												<span class="font-weight-bold text-success">{{item.statuss}}</a>.
+
+												
+											</p>
+										</td>
+										<td>
+											<button ng-click="edit(item)" type="button"
+												class="btn btn-primary" data-bs-toggle="modal"
+												data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+												<i class="fas fa-search"></i>
+											</button>
+											<button ng-click="delete(item)" class="btn btn-danger"
+												onclick="dele_success('success-message')">
+												<i class="fas fa-recycle"></i>
+											</button>
+										</td>
+
+
+									</tr>
+								</tbody>
+							</table>
+
+							<form class="modal_framework">
+								<div class="modal fade" id="exampleModal" tabindex="-1"
+									aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content"
+											style="margin-left: -150px; width: 900px; height: 550px; overflow: auto;">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLabel"
+													style="color: red;">CHI TIẾT ĐƠN HÀNG</h5>
+												<button type="button" class="btn-close"
+													data-bs-dismiss="modal" aria-label="Close"></button>
+											</div>
+											<div class="modal-body">
+												<form>
+													<div class="row">
+														<div class="col-lg-3 col-md-3">
+
+															<div class="mb-3">
+																<div class="row">
+																	<label for="recipient-name" class="col-form-label">Mã đơn hàng :</label>
+																	<select ng-model="search.order.id" class="form-control">
+																		<option ng-value="form.id">{{form.id}}</option>
+																	</select> 
+																</div>
+																
+															</div>
+														</div>
+														<div class="col-lg-3 col-md-3">
+															<div class="mb-3">
+																<label for="recipient-name" class="col-form-label">Tên
+																	khách hàng:</label> <input ng-model="form.account.username"
+																	class="form-control" readonly>
+															</div>
+														</div>
+
+														<div class="col-lg-3 col-md-3">
+															<div class="mb-3">
+																<label for="recipient-name" class="col-form-label">Số
+																	điện thoại:</label> <input ng-model="form.numberphone"
+																	class="form-control" readonly>
+															</div>
+														</div>
+														<div class="col-lg-3 col-md-3">
+															<div class="mb-3">
+																<label for="recipient-name" class="col-form-label">Tình trạng :</label>
+																<select ng-model="form.statuss" class="form-control" id="recipient-name">
+																	<option value="DAGIAOHANG">DAGIAOHANG</option>
+																	<option value="DANGGIAOHANG">DANGGIAOHANG</option>
+																	<option value="DAHUY">DAHUY</option>
+																	<option value="DANGXULY">DANGXULY</option>
+																</select>
+															</div>
+														</div>
+														<div class="col-lg-3 col-md-3">
+															<div class="mb-3">
+																<label for="recipient-name" class="col-form-label">Ngày
+																	đặt:</label> <input ng-model="form.createDate"
+																	class="form-control" readonly>
+															</div>
+														</div>
+														<div class="col-lg-6 col-md-6">
+															<div class="mb-3">
+																<label for="recipient-name" class="col-form-label">Địa
+																	chỉ:</label> <input ng-model="form.address"
+																	class="form-control" readonly>
+															</div>
+														</div>
+
+														<div class="panel-footer text-center">
+															<button ng-click="update()" class="btn btn-success"
+																onclick="update_success('success-message')">
+																<b class="glyphicon glyphicon-save"></b>Cập nhật
+															</button>
+														</div>
+
+													</div>
+													<hr>
+													<div class="col-md-12">
+														<div class="card card-plain">
+															<div class="card-body">
+																<div class="table-responsive">
+																	<table class="table table-striped table-hover">
+																		<thead>
+																			<tr style="background-color: aquamarine">
+																				<th style="font-weight: bold;">Mã hóa đơn</th>
+																				<th style="font-weight: bold;">Mã sản phẩm</th>
+																				<th style="font-weight: bold;">Tên sản phẩm</th>
+																				<th style="font-weight: bold;">Giá</th>
+																				<th style="font-weight: bold;">Số lượng</th>
+																				<th style="font-weight: bold;">Đơn vị</th>
+																				<th style="font-weight: bold;">Tổng tiền</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+
+																			<!-- <tr
+																					ng-repeat="detail in details | filter: {orderid:'10019'}">
+																					<td >{{detail.order.id}}</td>
+																					<td>{{detail.product.productid}}</td>
+
+																					<td>{{detail.product.name}}</td>
+																					<td>{{detail.price}}</td>
+																					<td>{{detail.quantity}}</td>
+																					<td>{{detail.quantity*detail.price | number
+																						: 2}}</td>
+																				</tr> -->
+
+																			<tr ng-repeat="detail in details | filter: search">
+																				<td>{{detail.order.id}}</td>
+																				<td>{{detail.product.productid}}</td>
+
+																				<td>{{detail.product.name}}</td>
+																				<td>{{detail.price}}</td>
+																				<td>{{detail.quantity}}</td>
+																				<td>{{detail.product.unit}}</td>
+																				<td>{{detail.quantity*detail.price | number :
+																					2}}</td>
+																			</tr>
+																		</tbody>
+																		<!-- item in items -->
+																		<!-- detail in details -->
+																	</table>
+
+																</div>
+
+															</div>
+														</div>
+													</div>
+
+												</form>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary"
+													data-bs-dismiss="modal">Thoát</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+
+
+							<dir-pagination-controls max-size="5" direction-links="true"
+								boundary-links="true"> </dir-pagination-controls>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

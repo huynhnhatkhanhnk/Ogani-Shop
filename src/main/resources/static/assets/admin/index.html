@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!-- Tell the browser to be responsive to screen width -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="keywords"
+	content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Matrix lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Matrix admin lite design, Matrix admin lite dashboard bootstrap 5 dashboard template" />
+<meta name="description"
+	content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Ogani Admin</title>
+<!-- Favicon icon -->
+<link rel="icon" type="image/png" sizes="16x16"
+	href="/assets/images/logo-icon-ogani.png" />
+<!-- Custom CSS -->
+<link href="/assets/libs/flot/css/float-chart.css" rel="stylesheet" />
+
+<!-- Custom CSS -->
+<link href="/assets/dist/css/style.min.css" rel="stylesheet" />
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+	
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+
+</head>
+
+
+
+<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.min.js"></script>
+ -->
+<body ng-app="admin-app" class="nav-md">
+	<!-- ============================================================== -->
+	<!-- Preloader - style you can find in spinners.css -->
+	<!-- ============================================================== -->
+	<div class="preloader">
+		<div class="lds-ripple">
+			<div class="lds-pos"></div>
+			<div class="lds-pos"></div>
+		</div>
+	</div>
+	<!-- ============================================================== -->
+	<!-- Main wrapper - style you can find in pages.scss -->
+	<!-- ============================================================== -->
+	<div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5"
+		data-sidebartype="full" data-sidebar-position="absolute"
+		data-header-position="absolute" data-boxed-layout="full">
+		<!-- ============================================================== -->
+		<!-- Topbar header - style you can find in pages.scss -->
+		<!-- ============================================================== -->
+		<header class="topbar" data-navbarbg="skin5">
+			<nav class="navbar top-navbar navbar-expand-md navbar-dark">
+				<div class="navbar-header" data-logobg="skin5">
+					<!-- ============================================================== -->
+					<!-- Logo -->
+					<!-- ============================================================== -->
+					<a class="navbar-brand" href="/home"> <b
+						class="logo-icon ps-2"> <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+							<img src="/assets/images/logoadmin.jpg"
+							alt="homepage" class="light-logo" width="180px" height="70px" />
+					</b> <!--End Logo icon --> <!-- Logo text --> <!-- Logo icon --> <!-- <b class="logo-icon"> --> <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+						<!-- Dark Logo icon --> <!-- <img src="../assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
+
+						<!-- </b> --> <!--End Logo icon -->
+					</a>
+					<!-- ============================================================== -->
+					<!-- End Logo -->
+					<!-- ============================================================== -->
+					<!-- ============================================================== -->
+					<!-- Toggle which is visible on mobile only -->
+					<!-- ============================================================== -->
+					<a class="nav-toggler waves-effect waves-light d-block d-md-none"
+						href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+				</div>
+				<!-- ============================================================== -->
+				<!-- End Logo -->
+				<!-- ============================================================== -->
+				<div class="navbar-collapse collapse" id="navbarSupportedContent"
+					data-navbarbg="skin5">
+					<!-- ============================================================== -->
+					<!-- toggle and nav items -->
+					<!-- ============================================================== -->
+					<ul class="navbar-nav float-start me-auto">
+						<li class="nav-item d-none d-lg-block"><a
+							class="nav-link sidebartoggler waves-effect waves-light"
+							href="javascript:void(0)" data-sidebartype="mini-sidebar"> <i
+								class="fas fa-bars"></i>
+						</a></li>
+						<!-- ============================================================== -->
+						<!-- create new -->
+						<!-- ============================================================== -->
+						<!-- <li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<span class="d-none d-md-block">Create New <i
+									class="fa fa-angle-down"></i>
+							</span> <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>
+						</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+								<li><a class="dropdown-item" href="#">Action</a></li>
+								<li><a class="dropdown-item" href="#">Another action</a></li>
+								<li><hr class="dropdown-divider" /></li>
+								<li><a class="dropdown-item" href="#">Something else
+										here</a></li>
+							</ul></li> -->
+						<!-- ============================================================== -->
+						<!-- Search -->
+						<!-- ============================================================== -->
+						<!-- <li class="nav-item search-box"><a
+							class="nav-link waves-effect waves-dark"
+							href="javascript:void(0)"><i class="fas fa-search"></i></a>
+							<form class="app-search position-absolute">
+								<input type="text" class="form-control"
+									placeholder="Search &amp; enter" /> <a class="srh-btn"><i
+									class="mdi mdi-window-close"></i></a>
+							</form></li> -->
+						
+						<audio controls loop style="height: 40px; margin-top: 10px;">
+							<source src="/assets/images/aino.mp3" type="audio/mpeg">
+						</audio>	
+						
+					</ul>
+					<!-- ============================================================== -->
+					<!-- Right side toggle and nav items -->
+					<!-- ============================================================== -->
+					<ul class="navbar-nav float-end">
+						<!-- ============================================================== -->
+						<!-- Comment -->
+						<!-- ============================================================== -->
+						<!-- <li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<i class="far fa-bell"></i>
+						</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="#">Action</a></li>
+								<li><a class="dropdown-item" href="#">Another action</a></li>
+								<li><hr class="dropdown-divider" /></li>
+								<li><a class="dropdown-item" href="#">Something else
+										here</a></li>
+							</ul></li> -->
+						<!-- ============================================================== -->
+						<!-- End Comment -->
+						<!-- ============================================================== -->
+						<!-- ============================================================== -->
+						
+
+						<!-- ============================================================== -->
+						<!-- User profile and search -->
+						<!-- ============================================================== -->
+						<li class="nav-item dropdown"><a
+							class="
+                    nav-link
+                    dropdown-toggle
+                    text-muted
+                    waves-effect waves-dark
+                    pro-pic
+                  "
+							href="#" id="navbarDropdown" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"> <img
+								src="/assets/images/users/1.jpg" alt="user"
+								class="rounded-circle" width="31" />
+						</a>
+							<ul class="dropdown-menu dropdown-menu-end user-dd animated"
+								aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="/profile/user"><i
+									class="fas fa-user"></i></i> Thông tin của tôi</a>
+								<a class="dropdown-item" href="/profile/changepassword"><i
+									class="fas fa-cog"></i> Đổi mật khẩu</a>
+								<a class="dropdown-item" href="/security/logoff"><i
+									class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+							</ul></li>
+						<!-- ============================================================== -->
+						<!-- User profile and search -->
+						<!-- ============================================================== -->
+					</ul>
+				</div>
+			</nav>
+		</header>
+
+		<!-- ============================================================== -->
+		<!-- End Topbar header -->
+		<!-- ============================================================== -->
+		<!-- ============================================================== -->
+		<!-- Left Sidebar - style you can find in sidebar.scss  -->
+		<!-- ============================================================== -->
+
+		<!-- Left Sidebar - style you can find in sidebar.scss  -->
+		<!-- ============================================================== -->
+		<aside class="left-sidebar" data-sidebarbg="skin5">
+			<!-- Sidebar scroll-->
+			<div class="scroll-sidebar">
+				<!-- Sidebar navigation-->
+				<nav class="sidebar-nav">
+					<ul id="sidebarnav" class="pt-4">
+						<li class="sidebar-item"><a
+							class="sidebar-link waves-effect waves-dark sidebar-link"
+							href="#!bangdieukhien" aria-expanded="false"> <i
+								class="fas fa-th-large"></i> <span class="hide-menu">Bảng
+									điều khiển</span></a></li>
+							<li class="sidebar-item"><a
+							class="sidebar-link waves-effect waves-dark sidebar-link"
+							href="#!coupon" aria-expanded="false"><i class="fas fa-tags"></i><span class="hide-menu">Phiếu giảm giá</span></a></li>
+						<!-- <li class="sidebar-item"><a
+							class="sidebar-link waves-effect waves-dark sidebar-link"
+							href="#!bieudo" aria-expanded="false"> <i
+								class="fas fa-chart-bar"></i><span class="hide-menu">Biểu
+									đồ</span></a></li> -->
+						<!-- 	<li class="sidebar-item"><a
+							class="sidebar-link has-arrow waves-effect waves-dark"
+							href="javascript:void(0)" aria-expanded="false"><i
+								class="fas fa-tasks"></i><span class="hide-menu">Quản lý
+									danh mục </span></a>
+							<ul aria-expanded="false" class="collapse first-level">
+								<li class="sidebar-item"><a href="#!danhmuc1"
+									class="sidebar-link"><i class="far fa-file"></i><span
+										class="hide-menu"> Danh sách danh mục </span></a></li>
+								<li class="sidebar-item"><a href="#!danhmuc2"
+									class="sidebar-link"><i class="far fa-file"></i><span
+										class="hide-menu"> Cập nhập danh mục </span></a></li>
+							</ul></li> -->
+
+						<li class="sidebar-item"><a href="#!danhmuc"
+							class="sidebar-link"><i class="fas fa-tasks"></i><span
+								class="hide-menu"> Danh mục </span></a></li>
+
+
+						<li class="sidebar-item"><a href="#!product"
+							class="sidebar-link"><i class="fas fa-shopping-cart"></i><span
+								class="hide-menu"> Quản lý sản phẩm </span></a></li>
+
+
+						<!-- <li class="sidebar-item"><a
+							class="sidebar-link has-arrow waves-effect waves-dark"
+							href="javascript:void(0)" aria-expanded="false"><i
+								class="fas fa-box-open"></i><span class="hide-menu">Quản
+									lý sản phẩm </span></a>
+							<ul aria-expanded="false" class="collapse first-level">
+								<li class="sidebar-item"><a href="#!product"
+									class="sidebar-link"><i class="far fa-file"></i><span
+										class="hide-menu"> Danh sách sản phẩm </span></a></li>
+								<li class="sidebar-item"><a href="#!product2"
+									class="sidebar-link"><i class="far fa-file"></i><span
+										class="hide-menu"> Cập nhập sản phẩm </span></a></li>
+							</ul></li> -->
+						<li class="sidebar-item"><a
+							class="sidebar-link waves-effect waves-dark sidebar-link"
+							href="#!tintuc" aria-expanded="false"><i
+								class="far fa-newspaper"></i><span class="hide-menu">Quản
+									lý tin tức</span></a></li>
+
+						<li class="sidebar-item"><a href="#!taikhoan"
+							class="sidebar-link"><i class="fas fa-tasks"></i><span
+								class="hide-menu"> Quản lý tài khoản </span></a></li>
+						<!-- <li class="sidebar-item"><a
+							class="sidebar-link has-arrow waves-effect waves-dark"
+							href="javascript:void(0)" aria-expanded="false"><i
+								class="far fa-user"></i><span class="hide-menu">Quản lý
+									tài khoản </span></a>
+							<ul aria-expanded="false" class="collapse first-level">
+								<li class="sidebar-item"><a href="form-basic.html"
+									class="sidebar-link"><i class="far fa-file"></i><span
+										class="hide-menu"> Giao diện mẫu </span></a></li>
+								<li class="sidebar-item"><a href="form-wizard.html"
+									class="sidebar-link"><i class="far fa-file"></i><span
+										class="hide-menu"> Giao diện hướng dẫn </span></a></li>
+							</ul></li> -->
+						<!-- <li class="sidebar-item"><a
+							class="sidebar-link waves-effect waves-dark sidebar-link"
+							href="pages-buttons.html" aria-expanded="false"><i
+								class="fas fa-braille"></i><span class="hide-menu">Nút
+									chức năng</span></a></li> -->
+						<li class="sidebar-item"><a href="#!order"
+							class="sidebar-link"><i class="fas fa-shopping-cart"></i><span
+								class="hide-menu"> Quản lý hóa Đơn </span></a></li>
+
+						<li class="sidebar-item"><a
+							class="sidebar-link has-arrow waves-effect waves-dark"
+							href="javascript:void(0)" aria-expanded="false"><i
+								class="fas fa-exclamation"></i><span class="hide-menu">Lỗi
+							</span></a>
+
+							<ul aria-expanded="false" class="collapse first-level">
+								<li class="sidebar-item"><a href="#!error-403"
+									class="sidebar-link"><i class="fas fa-exclamation-triangle"></i>
+										<span class="hide-menu"> Lỗi 403 </span> </a></li>
+								<li class="sidebar-item"><a href="#!error-404"
+									class="sidebar-link"><i class="fas fa-exclamation-triangle"></i><span
+										class="hide-menu"> Lỗi 404 </span></a></li>
+								<li class="sidebar-item"><a href="#!error-405"
+									class="sidebar-link"><i class="fas fa-exclamation-triangle"></i><span
+										class="hide-menu"> Lỗi 405 </span></a></li>
+								<li class="sidebar-item"><a href="#!error-500"
+									class="sidebar-link"><i class="fas fa-exclamation-triangle"></i><span
+										class="hide-menu"> Lỗi 500 </span></a></li>
+							</ul></li>
+
+					</ul>
+				</nav>
+				<!-- End Sidebar navigation -->
+			</div>
+			<!-- End Sidebar scroll-->
+		</aside>
+		<!-- ============================================================== -->
+		<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+
+
+		<!-- ============================================================== -->
+		<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+		<!-- ============================================================== -->
+		<!-- ============================================================== -->
+		<!-- Page wrapper  -->
+		<!-- ============================================================== -->
+		<div class="page-wrapper">
+			<!-- ============================================================== -->
+			<!-- Bread crumb and right sidebar toggle -->
+			<!-- ============================================================== -->
+
+			<!-- ============================================================== -->
+			<!-- End Bread crumb and right sidebar toggle -->
+			<!-- ============================================================== -->
+			<!-- ============================================================== -->
+			<!-- Container fluid  -->
+			<!-- ============================================================== -->
+			<div class="container-fluid">
+				<main>
+					<div class="right_col" role="main" style="min-height: none;">
+						<div class="content">
+							<div class="container-fluid">
+								<p class="ng-view"></p>
+							</div>
+						</div>
+					</div>
+				</main>
+			</div>
+			<!-- ============================================================== -->
+			<!-- End Container fluid  -->
+			<!-- ============================================================== -->
+			<!-- ============================================================== -->
+			<!-- footer -->
+			<!-- ============================================================== -->
+			<footer class="footer text-center"> Chào mừng đến với quản
+				trị OGANI </footer>
+			<!-- ============================================================== -->
+			<!-- End footer -->
+			<!-- ============================================================== -->
+		</div>
+		<!-- ============================================================== -->
+		<!-- End Page wrapper  -->
+		<!-- ============================================================== -->
+	</div>
+	<!--SCRIPT-->
+	<script type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="/assets/richtext/jquery.richtext.min.js"></script>
+	<!-- <script type="text/javascript">
+		$(document).ready(function() {
+			$("#maindescription").richText();
+			$("#detaildescription").richText();
+		});
+	</script> -->
+
+	<script src="/assets/libs/jquery/dist/jquery.min.js"></script>
+	<!-- Bootstrap tether Core JavaScript -->
+	<script src="/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+	<script src="/assets/extra-libs/sparkline/sparkline.js"></script>
+	<!--Wave Effects -->
+	<script src="/assets/dist/js/waves.js"></script>
+	<!--Menu sidebar -->
+	<script src="/assets/dist/js/sidebarmenu.js"></script>
+	<!--Custom JavaScript -->
+	<script src="/assets/dist/js/custom.min.js"></script>
+	<!--This page JavaScript -->
+	<!-- <script src="../dist/js/pages/dashboards/dashboard1.js"></script> -->
+	<!-- Charts js Files -->
+
+	<script src="/assets/libs/flot/excanvas.js"></script>
+	<script src="/assets/libs/flot/jquery.flot.js"></script>
+	<script src="/assets/libs/flot/jquery.flot.pie.js"></script>
+	<script src="/assets/libs/flot/jquery.flot.time.js"></script>
+	<script src="/assets/libs/flot/jquery.flot.stack.js"></script>
+	<script src="/assets/libs/flot/jquery.flot.crosshair.js"></script>
+	<script src="/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+	<script src="/assets/dist/js/pages/chart/chart-page-init.js"></script>
+	<script src="/assets/admin/admin-app.js"></script>
+	<script src="/assets/admin/dirPagination.js"></script>
+	<script src="/assets/admin/san_pham/product-ctrl.js"></script>
+	<script src="/assets/admin/danh_muc/category-ctrl.js"></script>
+	<script src="/assets/admin/order/order-ctrl.js"></script>
+	<script src="/assets/admin/tin_tuc/tintuc-ctrl.js"></script>
+	<script src="/assets/admin/tai_khoan/account-ctrl.js"></script>
+	<script src="/assets/admin/bang_dieu_khien/bangdieukhien-ctrl.js"></script>
+	<script src="/assets/admin/cou_pon/coupon-ctrl.js"></script>
+
+	<!-- 	<script src="/assets/admin/authority/authority-ctrl.js"></script> -->
+	<script src="/assets/libs/chart/matrix.interface.js"></script>
+	<script src="/assets/libs/chart/excanvas.min.js"></script>
+	<script src="/assets/libs/chart/jquery.peity.min.js"></script>
+	<script src="/assets/libs/chart/matrix.charts.js"></script>
+	<script src="/assets/libs/chart/jquery.flot.pie.min.js"></script>
+	<script src="/assets/libs/chart/turning-series.js"></script>
+
+<script>
+
+        function ExportToExcel(type, fn, dl) {
+            var elt = document.getElementById('tbl_exporttable_to_xls');
+            var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+            return dl ?
+                XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+                XLSX.writeFile(wb, fn || ('Hoa_don.' + (type || 'xlsx')));
+        }
+
+    </script>
+
+</body>
+</html>
